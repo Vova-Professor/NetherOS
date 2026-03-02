@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url(../fonts/MinecraftTen-VGORe.ttf);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+    user-select: none;
+    font-family: 'Minecraft';
+    margin: 0;
+}
+
+.info {
+    position: absolute;
+    left: 88%;
+    top: 20px;
+}
+
+.info a {
+    color: #ffffff79;
+    text-decoration: none;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transition-delay: 0.9s;
+}
+
+
+
+
+.time-screen {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(./imgs/_BGS/_WP_END.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    z-index: 1001;
+
+    will-change: transition;
+    transition: transform 0.35s cubic-bezier(0.22, 0.8, 0.35, 1), filter 0.5s linear;
+}
+
+.time-screen p {
+    transition: all 0.5s ease;
+    transition-delay: 0.5s;
+    opacity: 0;
+}
+
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+}
+
+body .date {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+body .time-screen .date h1,
+body .time-screen .date h2 {
+    transition: all 0.5s ease;
+    margin: 0;
+    opacity: 0;
+}
+
+body .date h1 {
+    font-weight: 400;
+    font-size: 60pt;
+    margin-bottom: 20px;
+}
+
+body .login-screen .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url(./imgs/_BGS/_WP_END.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    transform: scale(1.1);
+    z-index: 0;
+    transition: all 1s ease;
+}
+
+body .login-screen .fg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 1004;
+    transition: all 1s ease;
+}
+
+body .login-screen .fg .pfinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-50px);
+}
+
+body .login-screen .fg .pfinfo h2 {
+    font-size: 24pt;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+body .login-screen .fg p {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+body .login-screen .fg #err-txt {
+    font-weight: 300;
+    color: rgb(167, 40, 40);
+}
+
+body .login-screen .fg .pfinfo img {
+    transform:translateY(-50px);
+    opacity: 0;
+    width: 150px;
+    height: 150px;
+    transition: all 1s ease;
+    border-radius: 1rem;
+}
+
+body .login-screen .fg .pin-wrapper {
+    position: relative;
+    width: 200px;
+}
+
+body .login-screen .fg .pin {
+    color: white;
+    width: 100%;
+    height: 25px;
+    border-radius: 0;
+    border: none;
+    padding-left: 10px;
+    background-color: #2900df3c;
+    outline: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    border-radius: 5px;
+}
+
+body .login-screen .fg .pin-wrapper:focus {
+    transform: translateY(-20px);
+}
+
+body .login-screen .fg .pin-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background-color: #fff;
+    transition: width 0.3s linear;
+}
+
+body .login-screen .fg .pin-wrapper:focus-within::after {
+    width: 100%;
+}
+body .login-screen.active .bg {
+    transform: scale(1.3);
+}
+
+body .login-screen.active .fg .pfinfo img {
+    opacity: 1;
+    transform:translateY(0);
+}
+
+body .login-screen.active .fg .pfinfo h2,
+body .login-screen.active .fg p,
+body .login-screen.login-screen.active .fg .pin {
+    opacity: 1;
+}
+
+
+body .time-screen.active .date h1,
+body .time-screen.active .date h2,
+body .time-screen.active .info a,
+body .time-screen.active p {
+    opacity: 1;
+}
