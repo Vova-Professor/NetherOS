@@ -1,0 +1,102 @@
+let wallpaper_settings = document.querySelector('.preview-screen');
+let selectedColorElement;
+let selectedImageElement;
+
+let appearances = {"light-white": ['#ffffff68', '#f0efef'], "dark-black": ['#2f2e3368', '#1b1b1b'], "light-pink": ['#ff8afd68', '#ae3488'], "peaceful-green": ['#8cff8a68', '#8cff8a'], "normal-tomato": ['#ff8a8a68', '#ff8a8a']};
+
+
+function saveStyle() {
+    localStorage.setItem('Settings-Appearance', JSON.stringify({
+        selected_wallpaper: selectedImageElement?.src,
+        selected_color: selectedColorElement?.dataset.stylecolor
+    }))
+}
+
+function loadStyle() {
+    const saved = JSON.parse(localStorage.getItem('Settings-Appearance'));
+    if (!saved) return;
+
+    if (saved.selected_wallpaper) {
+        const imgEl = [...document.querySelectorAll('.bg-container img')]
+            .find(img => img.src === saved.selected_wallpaper);
+        if (imgEl) {
+            selectedImageElement = imgEl;
+            setWallpaper(saved.selected_wallpaper, imgEl);
+        }
+    }
+
+    if (saved.selected_color) {
+        const colorEl = document.querySelector(`.color[data-stylecolor="${saved.selected_color}"]`);
+        if (colorEl) {
+            selectedColorElement = colorEl;
+            setAppearance(saved.selected_color, colorEl);
+        }
+    }
+}
+
+loadStyle()
+
+function setWallpaper(path, img) {
+    let selected_wallpaper = document.querySelector('.bg-container .selected');
+    if (selected_wallpaper) {
+        selected_wallpaper.classList.remove('selected');
+    }
+    wallpaper_settings.style.backgroundImage = `url(${path})`;
+    img.classList.add('selected');
+
+    window.top.postMessage({
+        type: "SET_WALLPAPER",
+        path: path
+    }, "*");
+
+    localStorage.setItem("wallpaper", path);
+}
+
+function setAppearance(colorName, element) {
+    let taskbar = wallpaper_settings.querySelector(".taskbar-group .taskbar");
+    let timeWrap = wallpaper_settings.querySelector(".taskbar-group .time-wrap");
+    let apps = wallpaper_settings.querySelectorAll(".app");
+
+    document.querySelectorAll('.color').forEach(c => c.classList.remove('selected'));
+    element.classList.add('selected');
+
+    
+
+    taskbar.style.backgroundColor = appearances[colorName][0];
+    timeWrap.style.backgroundColor = appearances[colorName][0];
+
+    apps.forEach(app => {
+        app.style.backgroundColor = appearances[colorName][1];
+    });
+
+    localStorage.setItem('accentStyle', colorName);
+
+    window.top.postMessage({
+        type: "SET_STYLE",
+        style: colorName
+    }, "*");
+}
+
+
+document.querySelectorAll('.bg-container img').forEach(img => {
+    img.addEventListener('click', () => {
+        selectedImageElement = img;
+        setWallpaper(img.src, img);
+        saveStyle()
+    })
+})
+
+document.querySelectorAll('.color').forEach(el => {
+    el.addEventListener('click', () => {
+        styleName = el.dataset.stylecolor;
+        selectedColorElement = el;
+
+        const colorName = styleName;
+        setAppearance(colorName, el);
+        saveStyle();
+    });
+    
+});
+
+const saved = localStorage.getItem("accentStyle");
+if (saved) document.documentElement.style.setProperty('--accent', saved);

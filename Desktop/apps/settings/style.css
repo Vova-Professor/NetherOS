@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    color: #fff;
+    font-family: 'Minecraft';
+}
+
+.settings-menu {
+    top: 0;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    width: 25%;
+    height: 100vh;
+    background-color: #16161e;
+}
+
+.info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    gap: 10px;
+    margin-bottom: 30px;
+    transition: background-color 0.5s ease;
+}
+
+.tab {
+    display: flex;
+    height: 6%;
+    width: 100%;
+    padding-left: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.tab.selected {
+    background-color: #292937;
+}
+
+.info:hover,
+.tab:hover {
+    background-color: #3f3f54;
+    cursor: pointer;
+}
+
+.info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4rem;
+}
+
+.sett-sect {
+    width: 75%;
+    min-height: 100vh;
+    padding-left: 20px;
+    background-color: #1e1e29;
+    margin-left: 25%;
+    padding: 10px;
+    border: none;
+}
+

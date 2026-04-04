@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../g.css">
+</head>
+<body>
+    <nav class="settings-menu">
+        <div class="info">
+            <img src="../../../imgs/_USR_PFP/pfp.jpg" alt="">
+            <span>Vova-Professor</span>
+        </div>
+        <div class="tab selected" onclick="changeTab('wifi', this)">
+            <span>Wi-Fi</span>
+        </div>
+        <div class="tab" onclick="changeTab('appearance', this)">
+            <span>Personalisation</span>
+        </div>
+    </nav>
+
+    <iframe class="sett-sect" src="./tabs/wifi/index.html"></iframe>
+    
+    <script src="script.js"></script>
+</body>
+</html>

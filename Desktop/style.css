@@ -1,0 +1,280 @@
+
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    background-image: url(../imgs/_BGS/_WP_SNST.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    font-family: 'Minecraft';
+}
+
+section {
+    height: 100vh;
+}
+
+.boot {
+    display: none;
+}
+
+.boot.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0e0e0e;
+    z-index: 1001;
+    color: #fff;
+}
+
+.boot img {
+    width: 80px;
+    animation: rotateObj 3s infinite linear;
+
+}
+
+.time-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 25vh;
+    background-color: #2f2e3368;
+    border-radius: 10px;
+}
+
+.clock,
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    background-color: #1c1c1f68;
+    border-radius: 10px;
+    color: white;
+    gap: 10px;
+}
+
+.clock {
+    height: 8vh;
+}
+
+.calendar {
+    height: 12vh;
+}
+
+@keyframes rotateObj {
+    from {
+        transform: rotate(0deg);
+        filter: drop-shadow(0px 0px 6px rgba(79, 217, 255, 0.58));
+    }
+    to {
+        transform: rotate(360deg);
+        filter: drop-shadow(0px 0px 18px rgba(79, 217, 255, 0.82));
+    }
+}
+
+.taskbar-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    min-height: 10vh;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+}
+
+.taskbar-group.ready {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.taskbar-group .taskbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #2f2e3368;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 10px 0 10px 0;
+}
+
+.working-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    grid-template-rows: repeat(auto-fill, 80px);
+    align-items: start;
+    gap: 10px;
+    padding: 20px;
+    width: 92%;
+}
+
+.app-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    color: white;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.app-wrap:hover .app-desktop {
+    transform: scale(1.2);
+}
+
+.app-wrap {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.app-wrap.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.app-desktop,
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    transition: transform 0.44s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.44s ease;
+}
+
+
+.app:hover {
+    cursor: pointer;
+    -webkit-box-shadow:0px 0px 11px 4px rgba(132, 132, 132, 0.68);
+    -moz-box-shadow: 0px 0px 11px 4px rgba(132, 132, 132, 0.68);
+    box-shadow: 0px 0px 11px 4px rgba(132, 132, 132, 0.68);
+}
+
+.app::before {
+    content: '';
+    position: absolute;
+    left: -14px;
+    width: 3px;
+    height: 0;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: height 0.2s ease;
+}
+
+.app.active::before {
+    height: 20px;
+}
+
+
+.window {
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    background-color: #282828;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 100px;
+    left: 200px;
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.3s ease;
+}
+
+.window.opening {
+    transform: scale(0.85);
+    opacity: 0;
+}
+
+.windows-titlebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.windows-titlebar .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+}
+.windows-titlebar .info img {
+    width: 20px;
+    height: 30px;
+}
+
+.windows-titlebar .btns {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 8px;
+}
+
+.windows-titlebar .btns button {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: none;
+}
+
+.windows-titlebar .btns button:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.window iframe {
+    width: 100%;
+    height: calc(100% - 36px);
+    border: none;
+}
+
+.action {
+    position: fixed;
+    top: 20px;
+    left: 80%;
+    color: white;
+    background-color: #1a1a1a50;
+    font-size: 14pt;
+    pointer-events: none;
+    min-height: 30px;
+    min-width: 100px;
+    padding: 5px;
+    opacity: 0;
+    transition: all 0.33s linear;
+    border-radius: 10px;
+
+}
+
+.action.active {
+    opacity: 1;
+}
+
+.windows-titlebar .info img.CraftCode {
+    width: 30px;
+    height: 30px;
+}

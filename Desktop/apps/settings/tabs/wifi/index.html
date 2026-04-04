@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../../../g.css">
+</head>
+<body>
+    <div class="fsettings">
+        <h2>Network & Internet</h2>
+        <article class="general-info">
+            <h3>Connection Details</h3>
+            <div class="info-wrap">
+                <div class="column f">
+                    <div class="information">
+                        <header>
+                            <span>External IP</span>
+                        </header>
+                        <main>
+                            <h4 class="inactive">Unavailable</h4>
+                        </main>
+                    </div>
+
+                    <div class="information">
+                        <header>
+                            <span>Network</span>
+                        </header>
+                        <main>
+                            <h4 class="neutral" id="curr-network-table">Home-Wi-Fi</h4>
+                        </main>
+                    </div>
+
+                    <div class="information">
+                        <header>
+                            <span>Signal</span>
+                        </header>
+                        <main>
+                            <h4 class="neutral">-42 dBm</h4>
+                        </main>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="information">
+                        <header>
+                            <span>Local IP</span>
+                        </header>
+                        <main>
+                            <h4 class="undesirable">239.188.68.230</h4>
+                        </main>
+                    </div>
+
+                    <div class="information">
+                        <header>
+                            <span>Security</span>
+                        </header>
+                        <main>
+                            <h4 class="good">WPA-3</h4>
+                        </main>
+                    </div>
+
+                    <div class="information">
+                        <header>
+                            <span>DNS</span>
+                        </header>
+                        <main>
+                            <h4 class="good" id="table-dns-ip">Auto (DHCP)</h4>
+                        </main>
+                    </div>
+            </div>
+
+            </div>
+        </article>
+
+        <article class="statuses">
+            <div class="status">
+                <h3>Status</h3>
+                <div class="int-wrap">
+                    <div class="checks">
+                        <div class="wrap">
+                            <img src="../../imgs/beacon.png" alt="" style="width: 30px; height: 30px;">
+                            <div class="bio">
+                                <span>Wi-Fi</span>
+                                <p style="font-size: 8pt;" id="conn-state">Connected to Home-Wi-Fi</p>
+                            </div>
+                        </div>
+
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <div class="track"><div class="thumb"></div></div>
+                        </label>
+                    </div>
+                    <div class="checks">
+                        <div class="wrap">
+                            <img src="../../imgs/phantom.png" alt="" style="width: 30px; height: 20px;">
+                            <div class="bio">
+                                <span>Airplane Mode</span>
+                            </div>
+                        </div>
+
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <div class="track"><div class="thumb"></div></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="networks">
+            <div class="network">
+                <h3>Networks</h3>
+                <div class="networks-wrap">
+                    <div class="checks selected">
+                        <div class="wrap">
+                            <img src="../../imgs/internet/medium.png" alt="" style="width: 30px; height: 25px;">
+                            <div class="bio">
+                                <span>Home-Wi-Fi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checks">
+                        <div class="wrap">
+                            <img src="../../imgs/internet/high.png" alt="" style="width: 30px; height: 25px;">
+                            <div class="bio">
+                                <span>Neighbour Wi-Fi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checks">
+                        <div class="wrap">
+                            <img src="../../imgs/internet/low.png" alt="" style="width: 30px; height: 25px;">
+                            <div class="bio">
+                                <span>Cafe-Wi-Fi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checks">
+                        <div class="wrap">
+                            <img src="../../imgs/internet/really-low.png" alt="" style="width: 30px; height: 25px;">
+                            <div class="bio">
+                                <span>AndroidAP_3F2A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+
+        <article class="dnses">
+                <div class="dns">
+                    <h3>DNS</h3>
+                    <div class="dns-wrap">
+                        <div class="wrap-bio">
+                            <div class="dns-info">
+                                <h3>DNS Server</h3>
+                                <p style="font-size: 8pt;">Custom resolver for all requests</p>
+                            </div>
+                            <select id="curr-dns">
+                                <option value="Auto (DHCP)">Auto (DHCP)</option>
+                                <option value="Mullvad - 194.242.2.4">Mullvad - 194.242.2.4</option>
+                                <option value="Cloudflare - 1.1.1.1">Cloudflare - 1.1.1.1</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+
+                        <input type="text" id="custom-dns" placeholder="Enter custom DNS..." style="display: none; margin-left: 10px;">
+                    </div>
+                </div>
+        </article>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

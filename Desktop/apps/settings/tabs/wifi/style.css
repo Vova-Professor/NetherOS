@@ -1,0 +1,278 @@
+body {
+    color: #fff;
+    font-family: 'Minecraft';
+    margin: 0;
+}
+
+.dns-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0f0f18;
+}
+
+.wrap-bio {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#custom-dns,
+.dns-wrap select {
+    width: 200px;
+    height: 30px;
+    border-radius: 4rem;
+    background-color: #3f3f93;
+    color: white;
+    padding-left: 10px;
+    border: none;
+
+}
+
+#custom-dns {
+    width: 300px;
+}
+
+.info-wrap {
+    display: flex;
+    align-items: center;
+    height: 40vh;
+    width: 90%;
+    gap: 1px;
+    background-color: white;
+}
+
+.info-wrap .column,
+.info-wrap .column.f {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+.info-wrap .column.f .information {
+    border-right: 2px solid #49495e;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 33.333%;
+    background-color: #161623;
+}
+
+.information main {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    padding-left: 30px;
+}
+
+.information main h4 {
+    margin: 0;
+}
+
+.information main .inactive {
+    color: #474757;
+}
+
+.information main .good {
+    color: #80ff00;
+}
+
+.information main .not-recommended {
+    color: #ff8c00;
+}
+
+.information main .neutral {
+    color: #3f3fff;
+}
+
+.information header {
+    background-color: #10101a;
+    height: 34%;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.int-wrap,
+.networks-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #0f0f18;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.fsettings {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+article {
+    width: 90%;
+}
+
+.info:hover,
+.tab:hover {
+    background-color: #3f3f54;
+    cursor: pointer;
+}
+
+.info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4rem;
+}
+
+.toggle input {
+    display: none;
+}
+
+.checks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #161623;
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.checks:hover {
+    background-color: #26263b;
+    cursor: pointer;
+}
+
+.checks .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.checks.selected {
+    border-left: #5b8c2a 3px solid;
+}
+
+
+
+.track {
+    width: 44px;
+    height: 24px;
+    background: #3a3a52;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+}
+
+.thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 20%;
+    transition: transform 0.2s;
+}
+
+
+.toggle input:checked ~ .track {
+    background-color: #5b8c2a;
+}
+
+.toggle input:checked ~ .track .thumb {
+    transform: translateX(20px);
+}
+
+.toggle.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.toggle input {
+    display: none;
+}
+
+.checks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #161623;
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.checks:hover {
+    background-color: #26263b;
+    cursor: pointer;
+}
+
+.checks .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.checks.selected {
+    border-left: #5b8c2a 3px solid;
+}
+
+
+
+.track {
+    width: 44px;
+    height: 24px;
+    background: #3a3a52;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+}
+
+.thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 20%;
+    transition: transform 0.2s;
+}
+
+
+.toggle input:checked ~ .track {
+    background-color: #5b8c2a;
+}
+
+.toggle input:checked ~ .track .thumb {
+    transform: translateX(20px);
+}
+
+.toggle.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+

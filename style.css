@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Minecraft';
-    src: url(./fonts/MinecraftTen-VGORe.ttf);
-}
-
 body {
     width: 100%;
     height: 100vh;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../g.css">
+</head>
+<body>
+    <div class="boot">
+        <img src="./imgs/Boot/pd.png" alt="">
+        <p>Starting your system...</p>
+    </div>
+
+    <div class="action">
+        <h2>Solid Browser</h2>
+    </div>
+
+    <section class="taskbar-group">
+        <nav class="taskbar">
+            <div class="app" data-title="Solid Browser" onclick="restoreApp('Solid Browser'); openApp('./apps/solid_browser/SolidBrowser/index.html', 'Solid Browser', './imgs/APPS/AppIcons/Solid.png', this);">
+                <img src="./imgs/APPS/AppIcons/Solid.png" alt="" style="width: 40px; height: 50px;">
+            </div>
+            <div class="app" data-title="CraftCode" onclick="restoreApp('CraftCode'); openApp('./apps/CraftCode/index.html', 'CraftCode', './imgs/APPS/AppIcons/cr.png', this);">
+                <img src="./imgs/APPS/AppIcons/cr.png" alt="" style="width: 50px; height: 50px;">
+            </div>
+            <div class="app" data-title="Source Project" onclick="window.location.href='https://github.com/Vova-Professor/NetherOS'">
+                <img src="./imgs/APPS/AppIcons/Github.png" alt="" style="width: 40px; height: 40px;">
+            </div>
+            <div class="app" data-title="About Me :3">
+                <img src="./imgs/APPS/AppIcons/Me.png" alt="" style="width: 40px; height: 40px;">
+            </div>
+            <div class="app" data-title="Settings" onclick="restoreApp('Settings'); openApp('./apps/settings/index.html', 'Settings', './imgs/APPS/AppIcons/cb.png', this);">
+                <img src="./imgs/APPS/AppIcons/cb.png" alt="" style="width: 40px; height: 40px;">
+            </div>
+        </nav>
+
+        <div class="time-wrap">
+            <nav class="clock">
+                <div class="time" id="hms">00:00</div>
+            </nav>
+
+            <nav class="calendar">
+                <div class="date" id="date">1 April, 2029</div>
+            </nav>
+        </div>
+        
+    </section>
+
+    <section class="working-area">
+        <article class="ad-box"></article>
+    </section>
+
+
+    <script src="./desk.js"></script>
+    <script src="../scripts/time.js"></script>
+    <script src="./system.js"></script>
+</body>
+</html>
