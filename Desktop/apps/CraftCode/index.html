@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../g.css">
 </head>
 <body>
     <header>
         <input type="text" class="file-name" placeholder="File name...">
         <button class="run-btn">Run</button>
     </header>
-    <textarea name="" class="code" spellcheck="false"></textarea>
+    <div class="editor-wrapper">
+        <div class="highlight-layer"></div>
+        <textarea class="code" spellcheck="false" autocomplete="off"></textarea>
+    </div>
     <section class="console">
         <h2>Local Console For Craft Code</h2>
         <h3 id="output"></h3>
     </section>
 
-    <script src="./main.js"></script>
+    <script src="editor.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

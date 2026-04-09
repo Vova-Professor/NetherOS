@@ -118,6 +118,10 @@ article .colors-wrap .color {
     height: 40px;
 }
 
+article .colors-wrap .color:hover {
+    cursor: pointer;
+}
+
 article .colors-wrap .color.selected {
     border: #5b8c2a 4px solid;
 }

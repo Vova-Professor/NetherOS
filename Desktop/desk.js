@@ -1,4 +1,10 @@
 let processes = [];
+const powerFind = document.querySelector('.power-find');
+const powerFindWrap = document.querySelector('.power-find-wrap');
+const powerFindSearch = document.getElementById('search-power');
+
+let isPowerPowered = false;
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let boot = document.querySelector(".boot");
@@ -37,7 +43,7 @@ function openApp(path, title, iconPath, appEl) {
         })
     })
 
-    appEl.classList.add("active");
+    if (appEl) appEl.classList.add("active");
 
     win.innerHTML = `
     <div class="windows-titlebar">
@@ -61,7 +67,19 @@ function openApp(path, title, iconPath, appEl) {
 document.addEventListener("keydown", (e) => {
     if (e.shiftKey && e.key.toLowerCase() === 's') {
         e.preventDefault();
-        openApp('https://vova-professor.github.io/NetherOS/', 'Sandbox Enviroment', './imgs/Boot/pd.png', document.querySelector('.app'));
+        openApp('../index.html', 'Sandbox Enviroment', './imgs/Boot/pd.png', null);
+    }
+    if (e.shiftKey && e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        isPowerPowered = !isPowerPowered;
+
+        if (isPowerPowered) {
+            powerFindWrap.classList.add('powered');
+            powerFindSearch?.focus();
+        }
+        else {
+            powerFindWrap.classList.remove('powered');
+        }
     }
 })
 
@@ -75,7 +93,7 @@ function minimizeApp(btn) {
     setTimeout(() => {
         win.style.display = 'none';
         process.minimized = true;
-        process.appEl.classList.add('minimized');
+        if (process.appEl) process.appEl.classList.add('minimized');
     }, 300);
 }
 
@@ -86,7 +104,7 @@ function closeApp(btn, title) {
     setTimeout(() => {
         win.remove();
         let process = processes.find(p => p.title === title);
-        if (process) process.appEl.classList.remove('active');
+        if (process?.appEl) process.appEl.classList.remove('active');
         processes = processes.filter(p => p.title !== title);
     }, 300);
 }
@@ -102,7 +120,7 @@ function restoreApp(title) {
     setTimeout(() => process.win.classList.remove('opening'), 300);
 
     process.minimized = false;
-    process.appEl.classList.remove('minimized');
+    if (process.appEl) process.appEl.classList.remove('minimized');
 }
 
 
@@ -188,3 +206,32 @@ document.querySelectorAll('.app, .app-desktop').forEach(app => {
         document.querySelector('.action h2').textContent = '';
     })
 })
+
+powerFindSearch.addEventListener('input', () => {
+    const query = powerFindSearch.value.toLowerCase().trim();
+    const list = document.querySelector('.power-find-wrap .list');
+
+    const apps = [
+        { title: 'Solid Browser', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/Solid.png', path: './apps/solid_browser/SolidBrowser/index.html' },
+        { title: 'CraftCode', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cr.png', path: './apps/CraftCode/index.html' },
+        { title: 'Settings', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cb.png', path: './apps/settings/index.html' },
+        { title: 'Sandbox Enviroment', aliases: ['sandbox', 'virtual', 'machine', 'isolated'], icon: './imgs/Boot/pd.png', path: '../index.html' },
+    ];
+
+    if (!query) {
+        list.innerHTML = '';
+        return;
+    }
+
+    const results = apps.filter(app => 
+        app.title.toLowerCase().includes(query) || app.aliases.some(a => a.includes(query))
+    );
+
+
+    list.innerHTML = results.map(app => `
+        <div class="find-result" onclick="openApp('${app.path}', '${app.title}', '${app.icon}', document.querySelector('[data-title=\\'${app.title}\\']'))">
+            <img src="${app.icon}" class="find-result-icon">
+            <span>${app.title}</span>
+        </div>
+    `).join('');
+});

@@ -15,7 +15,7 @@ pin.addEventListener("input", () => {
 
     if (value.length === superSecret.length) {
         if (value === superSecret) {
-            window.open("./Desktop/index.html")
+            window.location.href = "./Desktop/index.html";
         }
         else {
             err_txt.textContent = "Wrong PIN!";

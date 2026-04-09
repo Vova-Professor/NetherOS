@@ -54,11 +54,15 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
     - Settings App - appearances and wifi configurations!
 
+    - Sandbox Enviroment - not optimised yet, but should work like virtual enviroment!
+
 - Special Effects.
 
 - Window System.
 
 - Date and Time system.
+
+- PowerFind - find any app in your system!
 
 ---
 
@@ -84,7 +88,3 @@ Just open `index.html` in your browser. That's it. Seriously..... 😭
 
 ## Credits
 Wallpapers belong to their original authors -> links are in the top-right corner of the lock screen and settings app.
-
-
-
-Font: [Minecraft Ten](https://www.fontspace.com/minecraft-ten-font-f40317) by VGORE

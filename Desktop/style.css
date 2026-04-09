@@ -49,6 +49,7 @@ section {
     height: 25vh;
     background-color: #2f2e3368;
     border-radius: 10px;
+    font-weight: 600;
 }
 
 .clock,
@@ -224,8 +225,9 @@ section {
     gap: 5px;
 }
 .windows-titlebar .info img {
-    width: 20px;
+    width: 30px;
     height: 30px;
+    object-fit: contain;
 }
 
 .windows-titlebar .btns {
@@ -274,7 +276,88 @@ section {
     opacity: 1;
 }
 
-.windows-titlebar .info img.CraftCode {
-    width: 30px;
-    height: 30px;
+.power-find-wrap {
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
+    left: 35%;
+    gap: 10px;
+    font-family: 'Minecraft';
+    transition: all 0.5s ease;
+}
+
+.power-find-wrap.powered {
+    opacity: 1;
+}
+
+.power-find {
+    display: flex;
+    transform: scale(0.95);
+    pointer-events: none;
+    justify-content: flex-start;
+    align-items: center;
+    width: 600px;
+    height: 100px;
+    background-color: #ffffff68;
+    gap: 30px;
+    padding-left: 30px;
+    border-radius: 1rem;
+    transition: all 0.5s ease;
+}
+
+.power-find-wrap.powered .power-find {
+    pointer-events:all;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.power-find input {
+    display: flex;
+    width: 80%;
+    height: 30%;
+    font-size: 20pt;
+    background: none;
+    border: none;
+    color: white;
+    font-family: 'Minecraft';
+}
+
+.power-find input:focus {
+    outline: none;
+}
+
+.power-find-wrap .list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.find-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #b3b3b368;
+    font-size: 14pt;
+}
+
+.find-result:hover {
+    background-color: #ffffff20;
+}
+
+.find-result img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.find-image {
+    width: 60px;
+    height: 60px;
+    filter: brightness(0) invert(1);
 }
