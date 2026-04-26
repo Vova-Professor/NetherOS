@@ -64,6 +64,8 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
 - PowerFind - find any app in your system!
 
+- Minimize, full screen mode and close button for apps
+
 ---
 
 ## How to run
