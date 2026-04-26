@@ -83,20 +83,24 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 35vh;
 }
 
 .bgs .bg-container:hover {
     cursor: pointer;
 }
 
-.bgs .bg-container img {
+.bgs .bg-container img,
+.bgs .bg-container .custom-bg-img {
     width: 40%;
     height: 65%;
     border-radius: 1rem;
     transition: transform 0.5s ease;
 }
 
-.bgs .bg-container:hover img {
+.bgs .bg-container:hover img,
+.bgs .bg-container:hover .custom-bg-img {
     transform: scale(1.05);
 }
 
@@ -104,6 +108,15 @@ article {
 
 .bgs .bg-container .selected {
     border: #5b8c2a 6px solid;
+}
+
+.bgs .bg-container .custom-bg-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #16161e;
+    border-radius: 1rem;
+    background-position: center;
 }
 
 article .colors-wrap {

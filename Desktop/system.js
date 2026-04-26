@@ -22,6 +22,8 @@ function loadStyle() {
 loadStyle();
 
 function changeAppearance(colorName) {
+    if (!colorName || !appearances[colorName]) return;
+    
     document.querySelector(".taskbar").style.backgroundColor = appearances[colorName][0];
     document.querySelector(".time-wrap").style.backgroundColor = appearances[colorName][0];
     document.querySelectorAll(".time-wrap nav").forEach(timeEl => {

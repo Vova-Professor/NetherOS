@@ -2,6 +2,7 @@ let processes = [];
 const powerFind = document.querySelector('.power-find');
 const powerFindWrap = document.querySelector('.power-find-wrap');
 const powerFindSearch = document.getElementById('search-power');
+const showArea = document.querySelector('.show');
 
 let isPowerPowered = false;
 
@@ -27,7 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, TIMEOUT);
 })
 
+showArea.addEventListener('mouseenter', () => {
+    document.querySelector('.taskbar-group').classList.remove('hidden');
+});
 
+document.querySelector('.taskbar-group').addEventListener('mouseleave', () => {
+    const anyMaximized = document.querySelector('.window.maximized');
+    if (anyMaximized) {
+        document.querySelector('.taskbar-group').classList.add('hidden');
+    }
+});
 
 
 function openApp(path, title, iconPath, appEl) {
@@ -54,7 +64,7 @@ function openApp(path, title, iconPath, appEl) {
         
         <div class="btns">
             <button onclick="minimizeApp(this)" style="background-color: green"></button>
-            <button style="background-color: orange"></button>
+            <button onclick="maximizeApp(this)" style="background-color: orange"></button>
             <button onclick="closeApp(this, '${title}')" style="background-color: red"></button>
         </div>
     </div>
@@ -82,6 +92,21 @@ document.addEventListener("keydown", (e) => {
         }
     }
 })
+
+function maximizeApp(btn) {
+    const win = btn.closest('.window');
+    const isMaximized = win.classList.contains('maximized');
+    const taskbar = window.parent.document.querySelector('.taskbar-group');
+
+    if (isMaximized) {
+        win.classList.remove('maximized');
+        taskbar.classList.remove('hidden');
+    }
+    else {
+        win.classList.add('maximized');
+        taskbar.classList.add('hidden');
+    }
+}
 
 function minimizeApp(btn) {
     const win = btn.closest('.window');

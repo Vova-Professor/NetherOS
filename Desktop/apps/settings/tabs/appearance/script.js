@@ -4,20 +4,36 @@ let selectedImageElement;
 
 let appearances = {"light-white": ['#ffffff68', '#f0efef'], "dark-black": ['#2f2e3368', '#1b1b1b'], "light-pink": ['#ff8afd68', '#ae3488'], "peaceful-green": ['#8cff8a68', '#8cff8a'], "normal-tomato": ['#ff8a8a68', '#ff8a8a']};
 
+const customContainer = document.getElementById('custom-bg-container');
+const customInput = document.getElementById('custom-bg-input');
+const customPreview = document.getElementById('custom-bg-preview');
 
 function saveStyle() {
     localStorage.setItem('Settings-Appearance', JSON.stringify({
         selected_wallpaper: selectedImageElement?.src,
-        selected_color: selectedColorElement?.dataset.stylecolor
-    }))
+        selected_color: selectedColorElement?.dataset.stylecolor,
+        custom_bg_active: selectedImageElement === customPreview
+    }));
 }
 
 function loadStyle() {
     const saved = JSON.parse(localStorage.getItem('Settings-Appearance'));
     if (!saved) return;
 
-    if (saved.selected_wallpaper) {
-        const imgEl = [...document.querySelectorAll('.bg-container img')]
+    if (saved.custom_bg_active) {
+        const savedCustomBg = localStorage.getItem('customBg');
+        if (savedCustomBg) {
+            customPreview.style.backgroundImage = `url(${savedCustomBg})`;
+            customPreview.style.backgroundSize = 'cover';
+            customPreview.style.backgroundPosition = 'center';
+            document.getElementById('custom-placeholder').style.display = 'none';
+            selectedImageElement = customPreview;
+            setWallpaper(savedCustomBg, customPreview);
+        }
+    }
+
+    else if (saved.selected_wallpaper) {
+        const imgEl = [...document.querySelectorAll('.bg-container img:not(#custom-placeholder)')]
             .find(img => img.src === saved.selected_wallpaper);
         if (imgEl) {
             selectedImageElement = imgEl;
@@ -78,7 +94,7 @@ function setAppearance(colorName, element) {
 }
 
 
-document.querySelectorAll('.bg-container img').forEach(img => {
+document.querySelectorAll('.bg-container img:not(#custom-placeholder)').forEach(img => {
     img.addEventListener('click', () => {
         selectedImageElement = img;
         setWallpaper(img.src, img);
@@ -97,6 +113,42 @@ document.querySelectorAll('.color').forEach(el => {
     });
     
 });
+
+customContainer.addEventListener('click', () => {
+    customInput.click();
+});
+
+customInput.addEventListener('change', () => {
+    const file = customInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const dataUrl = e.target.result;
+
+        customPreview.style.backgroundImage = `url(${dataUrl})`;
+        customPreview.style.backgroundSize = 'cover';
+        customPreview.style.backgroundPosition = 'center';
+
+        document.getElementById('custom-placeholder').style.display = 'none';
+
+        selectedImageElement = customPreview;
+        setWallpaper(dataUrl, customPreview);
+        wallpaper_settings.style.backgroundImage = `url(${dataUrl})`;
+
+        localStorage.setItem('customBg', dataUrl);
+        saveStyle();
+    }
+    reader.readAsDataURL(file);
+})
+
+const savedCustomBg = localStorage.getItem('customBg');
+if (savedCustomBg) {
+    customPreview.style.backgroundImage = `url(${savedCustomBg})`;
+    customPreview.style.backgroundSize = 'cover';
+    customPreview.style.backgroundPosition = 'center';
+    document.getElementById('custom-placeholder').style.display = 'none';
+}
 
 const saved = localStorage.getItem("accentStyle");
 if (saved) document.documentElement.style.setProperty('--accent', saved);
