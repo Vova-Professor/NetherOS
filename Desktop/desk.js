@@ -7,6 +7,25 @@ const showArea = document.querySelector('.show');
 let isPowerPowered = false;
 
 
+const builtinApps = [
+        { title: 'Solid Browser', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/Solid.png', path: './apps/solid_browser/SolidBrowser/index.html' },
+        { title: 'CraftCode', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cr.png', path: './apps/CraftCode/index.html' },
+        { title: 'Settings', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cb.png', path: './apps/settings/index.html' },
+        { title: 'Sandbox Enviroment', aliases: ['sandbox', 'virtual', 'machine', 'isolated'], icon: './imgs/Boot/pd.png', path: '../index.html' },
+        { title: 'Palm Clicker', aliases: ['palm', 'clicker', 'mouse', 'beach'], icon: 'https://raw.githubusercontent.com/Vova-Professor/Palm-Clicker/refs/heads/main/imgs/palm01.png', path: 'https://vova-professor.github.io/Palm-Clicker/' },
+        { title: 'App Injector', aliases: ['inject', 'app', 'new', 'game'], icon: './apps/settings/imgs/beacon.png', path: './apps/custom_app/index.html' }
+];
+
+function getApps() {
+    const custom = JSON.parse(localStorage.getItem('custom-apps') || '[]');
+    return [...builtinApps, ...custom.map(a => ({
+        title: a.title,
+        aliases: [a.title.toLowerCase()],
+        icon: a.icon,
+        path: a.link
+    }))]
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     let boot = document.querySelector(".boot");
     const MAX = 11;
@@ -236,12 +255,7 @@ powerFindSearch.addEventListener('input', () => {
     const query = powerFindSearch.value.toLowerCase().trim();
     const list = document.querySelector('.power-find-wrap .list');
 
-    const apps = [
-        { title: 'Solid Browser', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/Solid.png', path: './apps/solid_browser/SolidBrowser/index.html' },
-        { title: 'CraftCode', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cr.png', path: './apps/CraftCode/index.html' },
-        { title: 'Settings', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cb.png', path: './apps/settings/index.html' },
-        { title: 'Sandbox Enviroment', aliases: ['sandbox', 'virtual', 'machine', 'isolated'], icon: './imgs/Boot/pd.png', path: '../index.html' },
-    ];
+    const apps = getApps();
 
     if (!query) {
         list.innerHTML = '';
