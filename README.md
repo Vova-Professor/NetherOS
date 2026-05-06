@@ -45,8 +45,10 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
 - Taskbar like in MacOS
 
+- Notification System
+
 - #### Apps
-    - Solid Browser (My previous project) - browser (currently limited due to iframe restrictions in modern browsers)
+    - Solid Browser (My previous project) - browser
 
     - CraftCode - Alternative to VS Code (currently supports running Rust code only)
 
@@ -73,7 +75,7 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 ## How to run
 
 Just open `index.html` in your browser. That's it. Seriously..... 😭
-
+or just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 ---
 

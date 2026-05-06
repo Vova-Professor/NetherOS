@@ -42,10 +42,54 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(fade);
             boot.classList.remove("active");
             document.querySelector(".taskbar-group").classList.add('ready');
+            pushMessage("Welcome!", "You will soon meet your AI assistant.", "./imgs/system/ender_pearl.png", "System", "./imgs/system/ender_pearl.png")
         }
     }, 30);
     }, TIMEOUT);
+
+    
 })
+
+function pushMessage(title, msg, img, app, app_icon) {
+    const messageWrap = document.createElement('article');
+    messageWrap.classList.add('message-box');
+
+    messageWrap.innerHTML = `
+        <section class="title-bar">
+            <img src="${app_icon}" class="app-icon">
+            <h3>${app}</h3>
+        </section>
+        <section class="content">
+            <section class="img-sect">
+                <img src="${img}" alt="">
+            </section>
+
+            <section class="text-sect">
+                <div class="title-area">
+                    <h2>${title}</h2>
+                </div>
+                <div class="text-area">
+                    <p>${msg}</p>
+                </div>
+                
+            </section>
+        </section>
+    `
+
+    document.querySelector('.working-area').appendChild(messageWrap);
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            messageWrap.classList.add('sent');
+        });
+    });
+
+    setTimeout(() => {
+        messageWrap.classList.remove('sent');
+        setTimeout(() => messageWrap.remove(), 300);
+    }, 4000);
+
+
+}
 
 showArea.addEventListener('mouseenter', () => {
     document.querySelector('.taskbar-group').classList.remove('hidden');

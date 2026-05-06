@@ -401,3 +401,82 @@ section {
 .taskbar-group.hidden:hover {
     transform: translateX(0);
 }
+
+.message-box {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    background-color: #2f2e3368;
+    color: #fff;
+    border-radius: 10px;
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    transform: translateX(330px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1003;
+}
+
+.message-box.sent {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.message-box .title-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    gap: 10px;
+}
+
+.message-box .title-bar img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.message-box .content {
+    display: flex;
+    width: 100%;
+    height: 80%;
+}
+
+.message-box .content .img-sect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+.message-box .content .img-sect img {
+    width: 60px;
+    height: 60px;
+}
+
+.message-box .content .text-sect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    gap: 10px;
+}
+
+.message-box .content .text-sect .title-area {
+    width: 100%;
+    height: 20%;
+}
+.message-box .content .text-sect .text-area {
+    width: 100%;
+    height: 90%;
+}
+
+.message-box .text-sect h2,
+.message-box .text-sect p {
+    margin: 0;
+}

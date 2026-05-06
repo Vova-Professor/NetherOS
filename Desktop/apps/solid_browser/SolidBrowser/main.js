@@ -3,6 +3,13 @@ const dropdown = document.querySelector('.dropdown');
 const logo = document.getElementById('engine-logo');
 const search = document.getElementById('search');
 
+const engineInfo = {
+    duckduckgo: '🟢 Secure & Private',
+    google: '🟡 Secure, but Trackable',
+    yandex: '🟠 Not recommended. But here is an useful tool.',
+    startpage: '🟢 Secure & Private'
+};
+
 let currentEngine = 'duckduckgo';
 
 engine.addEventListener('click', () => {
@@ -15,7 +22,7 @@ document.querySelectorAll('.option').forEach(option => {
     logo.src = newLogo;
 
     currentEngine = option.getAttribute('data-name').toLowerCase();
-
+    logo.title = engineInfo[currentEngine];
     dropdown.style.display = 'none';
   });
 });
@@ -36,14 +43,21 @@ search.addEventListener("keydown", (e) => {
 
     if (currentEngine === "duckduckgo") {
       url = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+      engine.style.border = "#00ff44 2px solid";
     }
     else if (currentEngine === "google") {
-      url = `https://google.com/?q=${encodeURIComponent(query)}`;
+      url = `https://google.com/search?q=${encodeURIComponent(query)}`;
+      engine.style.border = "#ffe600 2px solid";
     }
     else if (currentEngine === "yandex") {
       url = `https://yandex.ru/?q=${encodeURIComponent(query)}`;
+      engine.style.border = "#ffa600 2px solid";
+    }
+    else if (currentEngine === "startpage") {
+      url = `https://www.startpage.com/sp/search?query=${encodeURIComponent(query)}`;
+      engine.style.border = "#00ff44 2px solid";
     }
 
-    window.location.href = url;
+    window.open(url, '_blank');
   }
 })

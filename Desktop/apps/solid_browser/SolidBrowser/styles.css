@@ -1,15 +1,89 @@
 body {
     background-color: #16171d;
+    font-family: 'Roboto';
+    overflow: hidden;
 }
 
 header {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 10vh;
 }
 
-header .tab-container {
+
+header .tabs-container {
+    display: flex;
+    flex: 1;
     width: 100%;
     height: 50%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+header .tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+header .tabs-container .tab-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+header .tabs-container .tab-wrap .new {
+    width: 10px;
+    height: 10px;
+    border-radius: 1rem;
+    background-color: #434254;
+}
+
+header .tabs-container .tab-wrap .new:hover {
+    cursor: pointer;
+}
+
+header .tabs-container .tab-wrap .tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    background-color: #2f2e39;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 7px;
+}
+
+header .tabs-container .tab-wrap .tab .info {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    gap: 10px;
+}
+
+header .tabs-container .tab-wrap .tab .close {
+    display: none;
+    width: 10px;
+    height: 10px;
+    background-color: #23232c;
+    border-radius: 5rem;
+    margin-right: 15px;
+}
+
+header .tabs-container .tab-wrap .tab .close:hover {
+    cursor: pointer;
+}
+
+header .tabs-container .tab-wrap .tab:hover .close {
+    display: block;
+}
+
+header .tabs-container .tab-wrap .tab img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
 
 .search-engine {
@@ -99,7 +173,7 @@ header .arrows {
     display: flex;
     flex-direction: row;
     width: 15%;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -107,6 +181,10 @@ header .arrows img {
     width: 40px;
     height: 20px;
     margin-left: 10px;
+}
+
+header .arrows img:hover {
+    cursor: pointer;
 }
 
 header .arrows .ro {
