@@ -379,9 +379,9 @@ section {
 
 .show {
     position: absolute;
-    right: -12px;
+    right: -22px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     width: 12px;
     height: 60px;
     background-color: #2f2e3368;
@@ -394,7 +394,7 @@ section {
 }
 
 .taskbar-group.hidden {
-    transform: translateX(calc(-100% + 12px));
+    transform: translateX(-100%);
     opacity: 1;
 }
 
