@@ -81,13 +81,9 @@ or just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 
 
-## TODO
-
-- Upgrade Apps
-
-- Add File System
-
-- Add more apps!
+## What's NEW?
+- **Appearance Overhaul**: Significantly improved style system with smoother transitions and better consistency across all elements.
+- **Login Screen Fixed**: Pressing **Space** now properly opens the login screen (swipe-up animation + login UI).
 
 ---
 

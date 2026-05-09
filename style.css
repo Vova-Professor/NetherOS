@@ -159,6 +159,7 @@ body .login-screen .fg .pin {
     transition: opacity 0.5s ease;
     opacity: 0;
     border-radius: 5px;
+    font-family: 'Minecraft';
 }
 
 body .login-screen .fg .pin-wrapper:focus {

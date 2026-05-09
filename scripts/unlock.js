@@ -12,9 +12,13 @@ timescreen.addEventListener("pointerdown", (e) => {
 });
 
 document.addEventListener("keydown", (e) => {
-    timescreen.style.transition = "transform 0.35s cubic-bezier(0.22, 0.8, 0.35, 1)";
+    
     if (e.code == "Space") {
+        e.preventDefault();
+        timescreen.style.transition = "transform 0.35s cubic-bezier(0.22, 0.8, 0.35, 1)";
         timescreen.style.transform = `translate3d(0, -100%, 0)`;
+
+        loginPage.classList.add('active');
     }
 })
 
