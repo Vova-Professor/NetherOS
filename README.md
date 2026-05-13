@@ -56,9 +56,11 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
     - Settings App - appearances and wifi configurations!
 
-    - Sandbox Enviroment - not optimised yet, but should work like virtual enviroment!
+    - Sandbox Environment - not optimised yet, but should work like virtual environment!
 
     - App Injector - import your own app by link. ( Unfortunately browsers block that function :( )
+
+    - CraftShell - minecraft-styled terminal shell
 
 - Special Effects.
 

@@ -11,9 +11,10 @@ const builtinApps = [
         { title: 'Solid Browser', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/Solid.png', path: './apps/solid_browser/SolidBrowser/index.html' },
         { title: 'CraftCode', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cr.png', path: './apps/CraftCode/index.html' },
         { title: 'Settings', aliases: ['browser', 'solid', 'web', 'internet'], icon: './imgs/APPS/AppIcons/cb.png', path: './apps/settings/index.html' },
-        { title: 'Sandbox Enviroment', aliases: ['sandbox', 'virtual', 'machine', 'isolated'], icon: './imgs/Boot/pd.png', path: '../index.html' },
+        { title: 'Sandbox Environment', aliases: ['sandbox', 'virtual', 'machine', 'isolated'], icon: './imgs/Boot/pd.png', path: '../index.html' },
         { title: 'Palm Clicker', aliases: ['palm', 'clicker', 'mouse', 'beach'], icon: 'https://raw.githubusercontent.com/Vova-Professor/Palm-Clicker/refs/heads/main/imgs/palm01.png', path: 'https://vova-professor.github.io/Palm-Clicker/' },
-        { title: 'App Injector', aliases: ['inject', 'app', 'new', 'game'], icon: './apps/settings/imgs/beacon.png', path: './apps/custom_app/index.html' }
+        { title: 'App Injector', aliases: ['inject', 'app', 'new', 'game'], icon: './apps/settings/imgs/beacon.png', path: './apps/custom_app/index.html' },
+        { title: 'CraftShell', aliases: ['console', 'craftshell', 'shell', 'terminal'], icon: './apps/terminal/imgs/console.jpg', path: './apps/terminal/index.html' }
 ];
 
 function getApps() {
@@ -154,6 +155,10 @@ document.addEventListener("keydown", (e) => {
             powerFindWrap.classList.remove('powered');
         }
     }
+    if (e.shiftKey && e.altKey && e.key.toLowerCase() === 't') {
+        e.preventDefault();
+        openApp('./apps/terminal/index.html', 'CraftShell', "./apps/terminal/imgs/console.jpg", null);
+    } 
 })
 
 function maximizeApp(btn) {

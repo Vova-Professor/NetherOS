@@ -5,7 +5,6 @@
     --app-icon-background-color: #1b1b1b;
 
     --window-titlebar-background-color: #1a1a1a;
-    --window-background-color: #282828;
 
     --power-find-background-color: #78787868;
     --power-find-results-background: #b3b3b368;
@@ -18,7 +17,6 @@
     --app-icon-background-color: #f0efef;
 
     --window-titlebar-background-color: #f4f4f4;
-    --window-background-color: #f6f8ff;
 
     --power-find-background-color: #ffffff68;
     --power-find-results-background: #b3b3b368;
@@ -31,7 +29,6 @@
     --app-icon-background-color: #ae3488;
 
     --window-titlebar-background-color: #7d2470;
-    --window-background-color: #9a0088;
 
     --power-find-background-color: #964f9868;
     --power-find-results-background: #88398968;
@@ -44,7 +41,6 @@
     --app-icon-background-color: #8cff8a;
 
     --window-titlebar-background-color: #2da462;
-    --window-background-color: #0a9a00;
 
     --power-find-background-color: #55984f68;
     --power-find-results-background: #39893d68;
@@ -57,7 +53,6 @@
     --app-icon-background-color: #ff8a8a;
 
     --window-titlebar-background-color: #982323;
-    --window-background-color: #6b0909;
 
     --power-find-background-color: #984f4f68;
     --power-find-results-background: #89393968;
@@ -230,8 +225,9 @@ section {
     position: relative;
     width: 60px;
     height: 60px;
-    background-color: var(--app-icon-background-color);
+    background: none;
     border-radius: 15px;
+    background-color: var(--app-icon-background-color);
     transition: transform 0.44s cubic-bezier(0.34, 1.56, 0.64, 1),
                 box-shadow 0.44s ease,
                 background-color 0.45s ease;

@@ -51,4 +51,7 @@ window.addEventListener("message", (event) => {
         addCustomApp(title, icon, link);
         setTimeout(() => location.reload(), 300);
     }
+    else if (event.data.type === "LOGOUT") {
+        location.href = "../index.html"
+    }
 })

@@ -1,0 +1,72 @@
+body {
+    background: none;
+    background-color: #050213d5;
+    font-family: 'Minecraft';
+    color: rgb(25, 223, 25);
+}
+
+.input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.input-wrap input {
+    width: 90%;
+    height: 30px;
+    font-size: 18pt;
+    background: none;
+    border: none;
+    color: rgb(25, 223, 25);
+    font-family: 'Minecraft';
+    caret-color: transparent;
+}
+
+.input-wrap input:focus {
+    outline: none;
+}
+
+.input-wrap .caret {
+    width: 10px;
+    height: 28px;
+    background-color: rgb(23, 209, 23);
+    position: absolute;
+
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+#terminal {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.line {
+    font-family: 'Minecraft';
+    font-size: 12pt;
+    color: rgb(25, 223, 25);
+}
+
+.output {
+    font-family: 'Minecraft';
+    font-size: 18pt;
+    color: rgb(25, 223, 25);
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+}
+
+.error {
+    color: rgb(255, 80, 80);
+}
+
+.prompt {
+    color: rgb(25, 223, 25);
+}
