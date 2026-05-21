@@ -14,7 +14,8 @@ const builtinApps = [
         { title: 'Sandbox Environment', aliases: ['sandbox', 'virtual', 'machine', 'isolated'], icon: './imgs/Boot/pd.png', path: '../index.html' },
         { title: 'Palm Clicker', aliases: ['palm', 'clicker', 'mouse', 'beach'], icon: 'https://raw.githubusercontent.com/Vova-Professor/Palm-Clicker/refs/heads/main/imgs/palm01.png', path: 'https://vova-professor.github.io/Palm-Clicker/' },
         { title: 'App Injector', aliases: ['inject', 'app', 'new', 'game'], icon: './apps/settings/imgs/beacon.png', path: './apps/custom_app/index.html' },
-        { title: 'CraftShell', aliases: ['console', 'craftshell', 'shell', 'terminal'], icon: './apps/terminal/imgs/console.jpg', path: './apps/terminal/index.html' }
+        { title: 'CraftShell', aliases: ['console', 'craftshell', 'shell', 'terminal'], icon: './apps/terminal/imgs/console.jpg', path: './apps/terminal/index.html' },
+        { title: 'File Explorer', aliases: ['files', 'explorer', 'folders', 'chest'], icon: './apps/FileExplorer/imgs/Folder.png', path: './apps/FileExplorer/index.html' }
 ];
 
 function getApps() {

@@ -1,0 +1,67 @@
+main {
+    flex: 1;
+    padding: 10px;
+    color: #fff;
+}
+
+main .folder {
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    align-items: center;
+}
+
+main .folder:hover {
+    background-color: #22222f;
+    cursor: pointer;
+}
+
+main .folder.clicked {
+    background-color: #22222f;
+}
+
+main .folder .name {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+main .folder .size {
+    width: 15%;
+}
+
+main .folders .folder .date {
+    width: 25%;
+}
+
+main .folders .folder img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+main header {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+}
+
+main header h3 {
+    display: flex;
+    align-self: center;
+    margin: 0;
+}
+
+main header .name {
+    width: 60%;
+}
+
+main header .size {
+    width: 15%;
+}
+
+main header .date {
+    width: 25%;
+}

@@ -62,6 +62,8 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
     - CraftShell - minecraft-styled terminal shell
 
+    - File Explorer - browse your files!
+
 - Special Effects.
 
 - Window System.
