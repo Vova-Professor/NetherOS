@@ -1,4 +1,7 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100vh;
     color: #fff;
@@ -6,199 +9,103 @@ body {
     user-select: none;
     font-family: 'Minecraft';
     margin: 0;
-}
-
-.info {
-    position: absolute;
-    left: 88%;
-    top: 20px;
-}
-
-.info a {
-    color: #ffffff79;
-    text-decoration: none;
-    opacity: 0;
-    transition: all 0.5s ease;
-    transition-delay: 0.9s;
-}
-
-
-
-
-.time-screen {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-image: url(./imgs/_BGS/_WP_END.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 100vh;
-    z-index: 1001;
-
-    will-change: transition;
-    transition: transform 0.35s cubic-bezier(0.22, 0.8, 0.35, 1), filter 0.5s linear;
 }
 
-.time-screen p {
-    transition: all 0.5s ease;
-    transition-delay: 0.5s;
-    opacity: 0;
+.login-form {
+    display: flex;
+    width: 40%;
+    height: 40vh;
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(7px);
+    border-radius: 15px;
+    box-shadow: 0 0 19px -6px rgba(0, 0, 0, 0.53);
+
 }
 
-.login-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 999;
-}
-
-body .date {
-    height: 400px;
+.login-form form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
     align-items: center;
-    margin-top: 50px;
-}
-
-body .time-screen .date h1,
-body .time-screen .date h2 {
-    transition: all 0.5s ease;
-    margin: 0;
-    opacity: 0;
-}
-
-body .date h1 {
-    font-weight: 400;
-    font-size: 60pt;
-    margin-bottom: 20px;
-}
-
-body .login-screen .bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-image: url(./imgs/_BGS/_WP_END.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: blur(10px);
-    transform: scale(1.1);
-    z-index: 0;
-    transition: all 1s ease;
-}
-
-body .login-screen .fg {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    z-index: 1004;
-    transition: all 1s ease;
-}
-
-body .login-screen .fg .pfinfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transform: translateY(-50px);
-}
-
-body .login-screen .fg .pfinfo h2 {
-    font-size: 24pt;
-    opacity: 0;
-    transition: all 1s ease;
-}
-
-body .login-screen .fg p {
-    transition: opacity 0.5s ease;
-    opacity: 0;
-}
-body .login-screen .fg #err-txt {
-    font-weight: 300;
-    color: rgb(167, 40, 40);
-}
-
-body .login-screen .fg .pfinfo img {
-    transform:translateY(-50px);
-    opacity: 0;
-    width: 150px;
-    height: 150px;
-    transition: all 1s ease;
-    border-radius: 1rem;
-}
-
-body .login-screen .fg .pin-wrapper {
-    position: relative;
-    width: 200px;
-}
-
-body .login-screen .fg .pin {
-    color: white;
-    width: 100%;
-    height: 25px;
-    border-radius: 0;
-    border: none;
-    padding-left: 10px;
-    background-color: #2900df3c;
-    outline: none;
-    transition: opacity 0.5s ease;
-    opacity: 0;
-    border-radius: 5px;
+    gap: 15px;
+    width: 55%;
     font-family: 'Minecraft';
 }
 
-body .login-screen .fg .pin-wrapper:focus {
-    transform: translateY(-20px);
+.login-form form button {
+    width: 80px;
+    height: 30px;
+    background-color: #463cb1;
+    border-radius: 7px;
+    border: none;
+    color: #fff;
+    font-family: 'Minecraft';
 }
 
-body .login-screen .fg .pin-wrapper::after {
-    content: "";
+.login-form form .el {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login-form form .el .input-wrap {
+    position: relative;
+}
+.login-form form .el .text-input {
+    color: #fff;
+    background: none;
+    border: none;
+    width: 200px;
+    font-family: 'Minecraft';
+}
+
+.login-form form .el .input-wrap::after {
+    content: '';
     position: absolute;
-    left: 0;
     bottom: 0;
-    width: 0%;
-    height: 1px;
-    background-color: #fff;
-    transition: width 0.3s linear;
-}
-
-body .login-screen .fg .pin-wrapper:focus-within::after {
+    left: 0;
     width: 100%;
-}
-body .login-screen.active .bg {
-    transform: scale(1.3);
-}
-
-body .login-screen.active .fg .pfinfo img {
-    opacity: 1;
-    transform:translateY(0);
-}
-
-body .login-screen.active .fg .pfinfo h2,
-body .login-screen.active .fg p,
-body .login-screen.login-screen.active .fg .pin {
-    opacity: 1;
+    height: 2px;
+    background-color: #7f77dd;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 
-body .time-screen.active .date h1,
-body .time-screen.active .date h2,
-body .time-screen.active .info a,
-body .time-screen.active p {
-    opacity: 1;
+.login-form form .el .text-input:focus {
+    outline: none;
+}
+
+.login-form form .el .input-wrap:focus-within::after {
+    transform: scaleX(1);
+}
+
+.login-form .pfp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-30px);
+    width: 45%;
+}
+
+.login-form .pfp .img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    width: 165px;
+    height: 165px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(14, 12, 32);
+}
+
+.login-form .pfp .img-wrap .image img {
+    width: 80px;
+    height: 60px;
 }

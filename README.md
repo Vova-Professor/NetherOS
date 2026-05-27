@@ -27,6 +27,8 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
 ## Features so far
 
+### YOU CAN CREAT YOUR OWN ACCOUNT NOW!
+
 ### Login Screen
 
 - 🕐 Live clock & date on the lock screen

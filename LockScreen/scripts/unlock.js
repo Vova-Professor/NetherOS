@@ -1,9 +1,10 @@
-const timescreen = document.getElementById("time-screen");
 let startY = 0;
 let currentY = 0;
 let isDragging = false;
 const threshold = 150;
 const res = 0.4;
+
+window.loginPage = document.getElementById("login-page");
 
 timescreen.addEventListener("pointerdown", (e) => {
     isDragging = true;

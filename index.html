@@ -4,43 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NetherOS - Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./g.css">
 </head>
 <body>
-    <div class="time-screen" id="time-screen">
-        <div class="info">
-            <a href="https://wallpapercave.com/w/wp8368519" target="_blank" id="cprght">About that image...</a>
+    <article class="login-form">
+        <div class="pfp">
+            <div class="img-wrap" id="pfp-picker">
+                <div class="image">
+                    <img src="./Desktop/apps/settings/imgs/phantom.png" id="phantom">
+                </div>
+                <input type="file" id="custom-pfp-input" accept="image/*" style="display:none;">
+            </div>
         </div>
-        <div class="date">
-            <h1 id="hms"></h1>
-            <h2 id="date"></h2>
-        </div>
-        <p>Swipe up to unlock</p>
-    </div>
-
-    <div class="login-screen" id="login-page">
-        <div class="bg"></div>
-        <div class="fg">
-            <div class="pfinfo">
-                <img src="./imgs/_USR_PFP/pfp.jpg">
-                <h2>Vova-Professor</h2>
+        <form>
+            <div class="el">
+                <label for="username">Username</label>
+                <div class="input-wrap">
+                    <input type="text" name="username" placeholder="minecraftPro" id="username" class="text-input">
+                </div>
+                
             </div>
 
-            <div class="pin-wrapper">
-                <input type="text" class="pin" id="pin" placeholder="PIN" maxlength="4">
+            <div class="el">
+                <label for="pin">PIN</label>
+                <div class="input-wrap">
+                    <input type="password" name="pin" placeholder="0657" id="pin" class="text-input">
+                </div>
             </div>
-            <p id="err-txt"></p>
-            <p onclick="forg();">Forget pin?</p>
-            
-        </div>
 
-    </div>
+            <div class="el">
+                <label for="repeat-pin">Repeat PIN</label>
+                <div class="input-wrap">
+                    <input type="password" name="repeat-pin" placeholder="0657" id="re-pin" class="text-input">
+                </div>
+            </div>
+
+            <button type="submit">Create</button>
+        </form>
+    </article>
 
 
-    <script src="./scripts/time.js"></script>
-    <script src="./scripts/unlock.js"></script>
+
     <script src="./scripts/background.js"></script>
-    <script src="./scripts/login.js"></script>
+    <script src="./scripts/register.js"></script>
 </body>
 </html>
