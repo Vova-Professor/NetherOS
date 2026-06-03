@@ -1,5 +1,6 @@
 # NetherOS
 
+Version: 2.3
 
 
 > A Minecraft-flavored WebOS. Somewhere between Windows and macOS, but blockier.
@@ -52,7 +53,7 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 - #### Apps
     - Solid Browser (My previous project) - browser
 
-    - CraftCode - Alternative to VS Code (currently supports running Rust code only)
+    - CraftCode - Alternative to VS Code
 
     - Source - view the project source directly inside the OS
 

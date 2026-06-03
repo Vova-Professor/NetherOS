@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const random = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
     orLink.href = random.link;
-    bg.style.backgroundImage = `url('../../imgs/_BGS/${random.image}')`;
+    bg.style.backgroundImage = `url('../imgs/_BGS/${random.image}')`;
 
     timescreen.style.backgroundImage = `url('../imgs/_BGS/${random.image}')`;
     setTimeout(() => {

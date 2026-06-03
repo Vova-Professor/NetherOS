@@ -12,5 +12,5 @@ const backgrounds = [
 
 document.addEventListener("DOMContentLoaded", () => {
     const random = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-    body.style.backgroundImage = `url('/NetherOS/imgs/_BGS/${random.image}')`;
+    body.style.backgroundImage = `url('./imgs/_BGS/${random.image}')`;
 })
