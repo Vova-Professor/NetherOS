@@ -1,5 +1,5 @@
 const orLink = document.getElementById("cprght");
-const body = document.body;
+const bg = document.querySelector('.bg');
 window.timescreen = document.getElementById("time-screen");
 
 const backgrounds = [
@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const random = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
     orLink.href = random.link;
-    body.style.backgroundImage = `url('../../imgs/_BGS/${random.image}')`;
+    bg.style.backgroundImage = `url('../../imgs/_BGS/${random.image}')`;
 
-    timescreen.style.backgroundImage = `url('/imgs/_BGS/${random.image}')`;
+    timescreen.style.backgroundImage = `url('../imgs/_BGS/${random.image}')`;
     setTimeout(() => {
         timescreen.classList.add("active");
     }, 200);

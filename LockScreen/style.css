@@ -87,7 +87,7 @@ body .login-screen .bg {
     left: 0;
     height: 100vh;
     width: 100%;
-    background-image: url(./imgs/_BGS/_WP_END.jpg);
+    background-image: url(NetherOS/LockScreen/imgs/_BGS/_WP_END.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

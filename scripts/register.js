@@ -7,8 +7,10 @@ const phantomImage = document.getElementById("phantom");
 pfpPicker.addEventListener('click', () => pfpInput.click());
 
 if (localStorage.getItem("system-account")) {
-    window.location.href = './LockScreen/index.html'
+    window.location.href = 'NetherOS/LockScreen/index.html'
 }
+
+
 
 
 pfpInput.addEventListener('change', () => {
@@ -16,13 +18,23 @@ pfpInput.addEventListener('change', () => {
     if (!file) return;
 
     const reader = new FileReader();
-
+    
     reader.onload = (e) => {
         const dataUrl = e.target.result;
+
+        console.log("Size:", dataUrl.length);
+
+        try {
+            localStorage.setItem("custom-pfp", dataUrl);
+            console.log("Saved successfully");
+        } catch (err) {
+            console.error("Storage failed:", err);
+        }
+
         phantomImage.style.display = "none";
         pfpPicker.style.backgroundImage = `url(${dataUrl})`;
-        localStorage.setItem('custom-pfp', dataUrl);
-    }
+    };
+
     reader.readAsDataURL(file);
 })
 
@@ -47,13 +59,13 @@ form.addEventListener('submit', (e) => {
     const account = {
         username,
         pin,
-        pfp: localStorage.getItem("custom-pfp") || null,
+        pfp: localStorage.getItem("custom-pfp") ? "custom-pfp" : null,
         createdAt: new Date().toISOString()
     }
 
     localStorage.setItem("system-account", JSON.stringify(account));
     localStorage.setItem("current-user-account", JSON.stringify(account));
 
-    window.location.href = "../LockScreen/index.html";
+    window.location.href = "NetherOS/LockScreen/index.html";
 
 })

@@ -1,5 +1,6 @@
 const textarea = document.querySelector('.code');
 const highlight_layer = document.querySelector('.highlight-layer');
+const line_numbers = document.querySelector('.line-numbers');
 
 const keywords = [
     "if", "else", "while", "for", "return", "import", "from", "in",
@@ -11,7 +12,7 @@ const keywords = [
     "var", "let", "const", "of", "switch", "case", "default", "throw",
     "try", "catch", "finally", "with", "debugger", "pass", "lambda",
     "and", "or", "not", "is", "elif", "global", "nonlocal", "raise",
-    "yield", "assert", "del", "except", "finally", "with", "as", "using"
+    "yield", "assert", "del", "except", "finally", "with", "as", "using", "std"
 ];
 
 const constants = [
@@ -115,6 +116,7 @@ function highlight(code) {
 
 textarea.addEventListener('input', () => {
     highlight_layer.innerHTML = highlight(textarea.value);
+    updateLineNumbers();
 });
 
 textarea.addEventListener('keydown', function(e) {
@@ -143,4 +145,31 @@ textarea.addEventListener('keydown', function(e) {
 textarea.addEventListener('scroll', () => {
     highlight_layer.scrollTop = textarea.scrollTop;
     highlight_layer.scrollLeft = textarea.scrollLeft;
+
+    line_numbers.scrollTop = textarea.scrollTop;
 });
+
+function updateLineNumbers() {
+    const lines = textarea.value.split('\n').length;
+    line_numbers.innerHTML = Array.from({length: lines}, (_, i) => `<span>${i + 1}</span>`).join('\n');
+}
+
+textarea.addEventListener('input', () => {
+    localStorage.setItem('editor-code', textarea.value);
+});
+
+window.addEventListener('load', () => {
+    textarea.value = localStorage.getItem('editor-code') || '';
+    highlight_layer.innerHTML = highlight(textarea.value);
+
+    fileNameInput.value = localStorage.getItem('editor-filename') || '';
+    updateLanguageIcon();
+    updateLineNumbers();
+});
+
+fileNameInput.addEventListener('input', () => {
+    localStorage.setItem('editor-filename', fileNameInput.value);
+    updateLanguageIcon();
+});
+
+updateLineNumbers();

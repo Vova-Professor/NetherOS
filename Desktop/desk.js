@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(fade);
             boot.classList.remove("active");
             document.querySelector(".taskbar-group").classList.add('ready');
-            pushMessage("Welcome!", "You will soon meet your AI assistant.", "./imgs/system/ender_pearl.png", "System", "./imgs/system/ender_pearl.png")
+            pushMessage("Welcome!", "Look around! You can code here, set your custom wallpaper!", "./imgs/system/ender_pearl.png", "System", "./imgs/system/ender_pearl.png");
         }
     }, 30);
     }, TIMEOUT);

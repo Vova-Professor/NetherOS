@@ -25,7 +25,10 @@ function changeAppearance(colorName) {
 }
 
 function changeBG(image) {
-    document.body.style.backgroundImage = `url(${image})`;
+    const src = image === "custom-wallpaper"
+        ? localStorage.getItem("custom-wallpaper")
+        : image;
+    document.body.style.backgroundImage = `url(${src})`;
 }
 
 function addCustomApp(title, icon, link) {
@@ -37,9 +40,29 @@ function addCustomApp(title, icon, link) {
 
 window.addEventListener("message", (event) => {
     if (event.data.type === "SET_WALLPAPER") {
-        bgImage = event.data.path;
-        changeBG(bgImage);
-        saveStyle();
+        const path = event.data.path;
+        
+        if (path.startsWith("data:")) {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX = 1280;
+                const scale = Math.min(1, MAX / Math.max(img.width, img.height));
+                canvas.width = img.width * scale;
+                canvas.height = img.height * scale;
+                canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                const compressed = canvas.toDataURL('image/jpeg', 0.7);
+                localStorage.setItem("custom-wallpaper", compressed);
+                bgImage = "custom-wallpaper";
+                changeBG(bgImage);
+                saveStyle();
+            };
+            img.src = path;
+        } else {
+            bgImage = path;
+            changeBG(bgImage);
+            saveStyle();
+        }
     }
     else if (event.data.type === "SET_STYLE") {
         colorName = event.data.style;

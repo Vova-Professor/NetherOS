@@ -21,7 +21,7 @@ function loadStyle() {
     if (!saved) return;
 
     if (saved.custom_bg_active) {
-        const savedCustomBg = localStorage.getItem('customBg');
+        const savedCustomBg = localStorage.getItem('custom-wallpaper');
         if (savedCustomBg) {
             customPreview.style.backgroundImage = `url(${savedCustomBg})`;
             customPreview.style.backgroundSize = 'cover';
@@ -65,7 +65,6 @@ function setWallpaper(path, img) {
         path: path
     }, "*");
 
-    localStorage.setItem("wallpaper", path);
 }
 
 function setAppearance(colorName, element) {
@@ -135,14 +134,12 @@ customInput.addEventListener('change', () => {
         selectedImageElement = customPreview;
         setWallpaper(dataUrl, customPreview);
         wallpaper_settings.style.backgroundImage = `url(${dataUrl})`;
-
-        localStorage.setItem('customBg', dataUrl);
         saveStyle();
     }
     reader.readAsDataURL(file);
 })
 
-const savedCustomBg = localStorage.getItem('customBg');
+const savedCustomBg = localStorage.getItem('custom-wallpaper');
 if (savedCustomBg) {
     customPreview.style.backgroundImage = `url(${savedCustomBg})`;
     customPreview.style.backgroundSize = 'cover';

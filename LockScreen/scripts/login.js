@@ -12,7 +12,11 @@ if (!account) {
 const superSecret = account.pin;
 
 username.innerText = account.username;
-userPfp.src = account.pfp || "../../imgs/_USR_PFP/pfp.jpg";
+const pfpSrc = account.pfp === "custom-pfp"
+    ? localStorage.getItem("custom-pfp")
+    : account.pfp;
+    
+userPfp.src = pfpSrc || "../../imgs/_USR_PFP/pfp.jpg";
 
 function forg() {
     err_txt.style.color = '#fff';
