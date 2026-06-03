@@ -7,7 +7,7 @@ const phantomImage = document.getElementById("phantom");
 pfpPicker.addEventListener('click', () => pfpInput.click());
 
 if (localStorage.getItem("system-account")) {
-    window.location.href = 'NetherOS/LockScreen/index.html'
+    window.location.href = './LockScreen/index.html'
 }
 
 
@@ -66,6 +66,6 @@ form.addEventListener('submit', (e) => {
     localStorage.setItem("system-account", JSON.stringify(account));
     localStorage.setItem("current-user-account", JSON.stringify(account));
 
-    window.location.href = "NetherOS/LockScreen/index.html";
+    window.location.href = "./LockScreen/index.html";
 
 })
