@@ -1,6 +1,7 @@
 const textarea = document.querySelector('.code');
 const highlight_layer = document.querySelector('.highlight-layer');
 const line_numbers = document.querySelector('.line-numbers');
+const download_btn = document.querySelector('.save-btn');
 
 const keywords = [
     "if", "else", "while", "for", "return", "import", "from", "in",
@@ -28,7 +29,7 @@ const types = [
     'object', 'symbol', 'bigint', 'Array', 'Map', 'Set', 'Promise'
 ];
 
-const func = ['fn', 'class', 'function', 'def'];
+const func = ['fn', 'class', 'function', 'def', 'struct', 'impl'];
 
 function escapeHtml(text) {
     return text
@@ -115,6 +116,13 @@ function highlight(code) {
 }
 
 textarea.addEventListener('input', () => {
+    const ext = fileNameInput.value.trim().match(/\.[^.]+$/)?.[0];
+    if (textarea.value.trim() !== '' && fileNameInput.value.trim() !== '' && ext) {
+        download_btn.style.display = 'block';
+    }
+    else {
+        download_btn.style.display = 'none';
+    }
     highlight_layer.innerHTML = highlight(textarea.value);
     updateLineNumbers();
 });
@@ -130,6 +138,20 @@ textarea.addEventListener('keydown', function(e) {
         this.selectionStart = this.selectionEnd = start + 4;
         highlight_layer.innerHTML = highlight(this.value);
         return;
+    }
+
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const start = this.selectionStart;
+        const lineStart = this.value.lastIndexOf('\n', start - 1) + 1;
+        const line = this.value.slice(lineStart, start);
+        const indent = line.match(/^\s*/)[0];
+
+        this.value = this.value.substring(0, start) + '\n' + indent + this.value.substring(start);
+        this.selectionStart = this.selectionEnd = start + 1 + indent.length;
+        highlight_layer.innerHTML = highlight(this.value);
+        updateLineNumbers();
+
     }
 
     if (pairs[e.key]) {
@@ -171,5 +193,47 @@ fileNameInput.addEventListener('input', () => {
     localStorage.setItem('editor-filename', fileNameInput.value);
     updateLanguageIcon();
 });
+
+function downloadFile() {
+    const fileName = fileNameInput.value.trim();
+    const code = textarea.value;
+
+    const blob = new Blob([code], {type: 'text/plain'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fileName;
+    a.click();
+}
+
+download_btn.addEventListener('click', () => {
+    downloadFile();
+})
+
+
+document.addEventListener('keydown', (e) => {
+    if (e.key == 'F9') {
+        e.preventDefault();
+        runCode();
+    }
+
+    if (!e.ctrlKey) return;
+
+    const root = document.documentElement;
+    const font_size = parseFloat(getComputedStyle(root).getPropertyValue('--font_size'));
+
+    if ((e.key === '=' || e.key === '+') && font_size <= 39) {
+        e.preventDefault();
+        root.style.setProperty('--font_size', (font_size+1) + 'px');
+    }
+    else if ((e.key === '-' || e.key === '_') && font_size >= 2) {
+        e.preventDefault();
+        root.style.setProperty('--font_size', (font_size-1) + 'px');
+    }
+    else if (e.key === '0') {
+        e.preventDefault();
+        root.style.setProperty('--font_size', '14px');
+    }
+})
+
 
 updateLineNumbers();

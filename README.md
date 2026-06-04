@@ -1,6 +1,6 @@
 # NetherOS
 
-Version: 2.3
+Version: 2.4
 
 
 > A Minecraft-flavored WebOS. Somewhere between Windows and macOS, but blockier.
@@ -89,7 +89,10 @@ or just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 
 ## What's NEW?
-- **Added Terminal** - minecraft-style terminal CraftShell.
+- Upgraded CraftCode:
+    1. Hotkeys (`ctrl +` make font size bigger, `ctrl -` make font size smaller, `ctrl 0` reset font size)
+    2. Save button - download file
+    3. Automatic indentation
 
 ---
 
