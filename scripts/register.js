@@ -10,7 +10,7 @@ if (localStorage.getItem("system-account")) {
 }
 
 if (!sessionStorage.getItem("booted")) {
-    window.location.href = "./Boot/index.html";
+    window.location.href = "./boot/index.html";
 }
 
 async function hashPin(pin) {
