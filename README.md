@@ -1,6 +1,6 @@
 # NetherOS
 
-Version: 2.4
+Version: 2.5
 
 
 > A Minecraft-flavored WebOS. Somewhere between Windows and macOS, but blockier.
