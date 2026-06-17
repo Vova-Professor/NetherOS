@@ -1,5 +1,11 @@
 let colorName;
 let bgImage;
+const account = JSON.parse(localStorage.getItem("current-user-account"));
+
+if (!account) {
+    window.location.href = "../index.html";
+    throw new Error("No account");
+}
 
 
 function saveStyle() {

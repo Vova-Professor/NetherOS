@@ -175,12 +175,14 @@ header .arrows {
     width: 15%;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 header .arrows img {
     width: 40px;
     height: 20px;
     margin-left: 10px;
+    pointer-events: none;
 }
 
 header .arrows img:hover {
@@ -223,6 +225,7 @@ main .logo-wrap {
 
 main img {
     width: 50%;
+    pointer-events: none;
 }
 
 main input {

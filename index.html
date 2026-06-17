@@ -11,11 +11,9 @@
     <article class="login-form">
         <div class="pfp">
             <div class="img-wrap" id="pfp-picker">
-                <div class="image">
-                    <img src="./Desktop/apps/settings/imgs/phantom.png" id="phantom">
-                </div>
                 <input type="file" id="custom-pfp-input" accept="image/*" style="display:none;">
             </div>
+            <h3>Your profile picture</h3>
         </div>
         <form>
             <div class="el">
@@ -29,14 +27,14 @@
             <div class="el">
                 <label for="pin">PIN</label>
                 <div class="input-wrap">
-                    <input type="password" name="pin" placeholder="0657" id="pin" class="text-input">
+                    <input type="password" name="pin" placeholder="0657" id="pin" class="text-input" maxlength="4">
                 </div>
             </div>
 
             <div class="el">
                 <label for="repeat-pin">Repeat PIN</label>
                 <div class="input-wrap">
-                    <input type="password" name="repeat-pin" placeholder="0657" id="re-pin" class="text-input">
+                    <input type="password" name="repeat-pin" placeholder="0657" id="re-pin" class="text-input" maxlength="4">
                 </div>
             </div>
 

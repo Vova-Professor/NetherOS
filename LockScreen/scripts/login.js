@@ -9,12 +9,16 @@ if (!account) {
     throw new Error("No account");
 }
 
+if (!sessionStorage.getItem("booted")) {
+    window.location.href = "../boot/index.html";
+}
+
 const superSecret = account.pin;
 
 username.innerText = account.username;
 const pfpSrc = account.pfp === "custom-pfp"
     ? localStorage.getItem("custom-pfp")
-    : account.pfp;
+    : '../imgs/_USR_PFP/phantom.png';
     
 userPfp.src = pfpSrc || "../../imgs/_USR_PFP/pfp.jpg";
 
@@ -23,13 +27,15 @@ function forg() {
     err_txt.textContent = "You should clear site localStorage..."
 }
 
-pin.addEventListener("input", () => {
+pin.addEventListener("input", async () => {
     const value = pin.value;
+
+    const hValue = await hashPin(value);
 
     err_txt.textContent = "";
 
-    if (value.length === superSecret.length) {
-        if (value === superSecret) {
+    if (value.length === 4) {
+        if (hValue === superSecret) {
             window.location.href = "../Desktop/index.html";
         }
         else {
@@ -38,3 +44,12 @@ pin.addEventListener("input", () => {
         }
     }
 })
+
+
+async function hashPin(pin) {
+    const enc = new TextEncoder();
+    const data = enc.encode(pin);
+    const hashBuff = await crypto.subtle.digest("SHA-256", data)
+    const hashArray = Array.from(new Uint8Array(hashBuff));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
+}

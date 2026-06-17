@@ -1,6 +1,7 @@
 body {
     color: #fff;
     font-family: 'Minecraft';
+    user-select: none;
     margin: 0;
 }
 
@@ -146,4 +147,65 @@ article .colors-wrap .color.selected {
     flex-direction: column;
     align-items: center;
 
+}
+
+.toggle input:checked ~ .track {
+    background-color: #5b8c2a;
+}
+
+.toggle input:checked ~ .track .thumb {
+    transform: translateX(20px);
+}
+
+.toggle.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.toggle input {
+    display: none;
+}
+
+.track {
+    width: 44px;
+    height: 24px;
+    background: #3a3a52;
+    border-radius: 20%;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 20%;
+    transition: transform 0.2s;
+}
+
+.checks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #161623;
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.checks:hover {
+    background-color: #26263b;
+    cursor: pointer;
+}
+
+.checks .wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

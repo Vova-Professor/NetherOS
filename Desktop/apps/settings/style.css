@@ -4,6 +4,7 @@ body {
     margin: 0;
     color: #fff;
     font-family: 'Minecraft';
+    user-select: none;
 }
 
 .settings-menu {

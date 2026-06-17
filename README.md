@@ -28,7 +28,7 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
 ## Features so far
 
-### YOU CAN CREAT YOUR OWN ACCOUNT NOW!
+### YOU CAN CREATE YOUR OWN ACCOUNT NOW!
 
 ### Login Screen
 
@@ -55,11 +55,11 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
     - CraftCode - Alternative to VS Code
 
-    - Source - view the project source directly inside the OS
+    - Source - view the OS project source 
 
-    - Settings App - appearances and wifi configurations!
+    - Settings App - appearances, sound and wifi configurations!
 
-    - Sandbox Environment - not optimised yet, but should work like virtual environment!
+    - Sandbox Environment - not optimized yet, but should work like virtual environment!
 
     - App Injector - import your own app by link. ( Unfortunately browsers block that function :( )
 
@@ -89,10 +89,13 @@ or just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 
 ## What's NEW?
-- Upgraded CraftCode:
-    1. Hotkeys (`ctrl +` make font size bigger, `ctrl -` make font size smaller, `ctrl 0` reset font size)
-    2. Save button - download file
-    3. Automatic indentation
+- Optimized look overall:
+    1. Fixed window bugs.
+    2. Added boot screen.
+    3. Beautified desktop loading.
+    4. Fixed bugs with PIN
+    5. Added sounds!
+- Optimized security.
 
 ---
 

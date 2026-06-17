@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+    background-color: rgb(19, 19, 19);
+    color: white;
+    font-family: 'Share Tech Mono';
+    color: rgb(3, 196, 3);
+}
+
+.output {
+    width: 100%;
+    min-height: 100vh;
+    white-space: pre-line;
+    line-height: 2;
+}
+
+.ok {
+    color: rgb(100, 234, 100);
+}
+
+div, h2 {
+    margin: 0;
+    font-size: 15pt;
+}

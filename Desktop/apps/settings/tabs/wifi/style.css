@@ -1,6 +1,7 @@
 body {
     color: #fff;
     font-family: 'Minecraft';
+    user-select: none;
     margin: 0;
 }
 

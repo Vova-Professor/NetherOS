@@ -6,7 +6,7 @@ const pfp = document.getElementById('account-pfp');
 
 const pfpSrc = account.pfp === "custom-pfp"
     ? localStorage.getItem("custom-pfp")
-    : account.pfp;
+    : '../../../imgs/_USR_PFP/phantom.png';
 
 pfp.src = pfpSrc || "../../imgs/_USR_PFP/pfp.jpg";
 

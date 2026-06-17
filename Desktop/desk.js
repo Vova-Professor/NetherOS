@@ -5,6 +5,8 @@ const powerFindSearch = document.getElementById('search-power');
 const showArea = document.querySelector('.show');
 
 let isPowerPowered = false;
+let zCount = 10;
+let selectedIndex = -1;
 
 
 const builtinApps = [
@@ -30,26 +32,47 @@ function getApps() {
 
 document.addEventListener('DOMContentLoaded', () => {
     let boot = document.querySelector(".boot");
-    const MAX = 11;
-    const MIN = 5;
-    const TIMEOUT = (Math.floor(Math.random() * (MAX - MIN)) + MIN) * 1000;
     boot.classList.add("active");
+    const ran = Math.floor(Math.random() * 5) + 1;;
+    const pickaxe = document.getElementById('boot-pickaxe');
 
-    setTimeout(() => {
-        let opacity = 1;
-        const fade = setInterval(() => {
-        opacity -= 0.05;
-        boot.style.opacity = opacity;
-        if (opacity <= 0) {
-            clearInterval(fade);
-            boot.classList.remove("active");
-            document.querySelector(".taskbar-group").classList.add('ready');
-            pushMessage("Welcome!", "Look around! You can code here, set your custom wallpaper!", "./imgs/system/ender_pearl.png", "System", "./imgs/system/ender_pearl.png");
-        }
-    }, 30);
-    }, TIMEOUT);
+    pickaxe.style.setProperty('--pickaxe-rot-times', ran);
 
-    
+    pickaxe.addEventListener('animationend', () => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                pickaxe.classList.add('unblock');
+            });
+        });
+        pickaxe.addEventListener('click', () => {
+            pickaxe.classList.remove('unblock');
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    pickaxe.classList.add('clicked');
+                });
+            });
+            if (localStorage.getItem('sounds-enabled') !== 'false') {
+                new Audio('./audio/boot.wav').play().catch(() => {});
+            }
+
+            const TIMEOUT = 1000;
+
+            setTimeout(() => {
+                let opacity = 1;
+                const fade = setInterval(() => {
+                    opacity -= 0.05;
+                    boot.style.opacity = opacity;
+                    if (opacity <= 0) {
+                        clearInterval(fade);
+                        boot.classList.remove("active");
+                        document.querySelector(".taskbar-group").classList.add('ready');
+                        pushMessage("Welcome!", "Look around! You can code here, set your custom wallpaper!", "./imgs/system/ender_pearl.png", "System", "./imgs/system/ender_pearl.png");
+                    }
+                }, 30);
+            }, TIMEOUT);
+
+        }, { once: true });
+    }, { once: true });
 })
 
 function pushMessage(title, msg, img, app, app_icon) {
@@ -135,6 +158,12 @@ function openApp(path, title, iconPath, appEl) {
     </div>
     <iframe src="${path}" frameborder="0"></iframe>
     `
+    if (localStorage.getItem('sounds-enabled') !== 'false') {
+        new Audio('./audio/open_sound.wav').play().catch(() => {});
+    }
+    win.addEventListener('mousedown', () => {
+        win.style.zIndex = zCount++;
+    })
     processes.push({ title, appEl, win, minimized: false });
     dragRight(win);
 }
@@ -195,6 +224,10 @@ function minimizeApp(btn) {
 function closeApp(btn, title) {
     const win = btn.closest('.window');
     win.classList.add('opening');
+    if (localStorage.getItem('sounds-enabled') !== 'false') {
+        new Audio('./audio/open_sound.wav').play().catch(() => {});
+    }
+    
     setTimeout(() => {
         win.remove();
         let process = processes.find(p => p.title === title);
@@ -324,3 +357,30 @@ powerFindSearch.addEventListener('input', () => {
         </div>
     `).join('');
 });
+
+
+powerFindSearch.addEventListener('keydown', (e) => {
+        const results = document.querySelectorAll('.find-result');
+
+        if (e.key === 'ArrowDown') {
+            selectedIndex = Math.min(selectedIndex + 1, results.length - 1);
+        }
+        else if (e.key === 'ArrowUp') {
+            selectedIndex = Math.max(selectedIndex - 1, 0);
+        }
+        else if (e.key === 'Enter' && results[selectedIndex]) {
+            results[selectedIndex].click();
+            powerFindWrap.classList.remove('powered');
+            isPowerPowered = false;
+            selectedIndex = -1;
+        }
+        else if (e.key === 'Escape') {
+            powerFindWrap.classList.remove('powered');
+            isPowerPowered = false;
+            selectedIndex = -1;
+        }
+
+        results.forEach((r, i) => {
+            r.style.outline = i === selectedIndex ? '2px solid white' : 'none';
+        })
+    })

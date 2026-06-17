@@ -1,7 +1,6 @@
 const form = document.querySelector("form");
 const pfpInput = document.getElementById("custom-pfp-input");
 const pfpPicker = document.getElementById("pfp-picker");
-const phantomImage = document.getElementById("phantom");
 
 
 pfpPicker.addEventListener('click', () => pfpInput.click());
@@ -10,7 +9,17 @@ if (localStorage.getItem("system-account")) {
     window.location.href = './LockScreen/index.html'
 }
 
+if (!sessionStorage.getItem("booted")) {
+    window.location.href = "./Boot/index.html";
+}
 
+async function hashPin(pin) {
+    const enc = new TextEncoder();
+    const data = enc.encode(pin);
+    const hashBuff = await crypto.subtle.digest("SHA-256", data)
+    const hashArray = Array.from(new Uint8Array(hashBuff));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
+}
 
 
 pfpInput.addEventListener('change', () => {
@@ -31,7 +40,6 @@ pfpInput.addEventListener('change', () => {
             console.error("Storage failed:", err);
         }
 
-        phantomImage.style.display = "none";
         pfpPicker.style.backgroundImage = `url(${dataUrl})`;
     };
 
@@ -39,7 +47,7 @@ pfpInput.addEventListener('change', () => {
 })
 
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
@@ -56,9 +64,11 @@ form.addEventListener('submit', (e) => {
         return;
     }
 
+    const hPin = await hashPin(pin);
+
     const account = {
         username,
-        pin,
+        pin: hPin,
         pfp: localStorage.getItem("custom-pfp") ? "custom-pfp" : null,
         createdAt: new Date().toISOString()
     }

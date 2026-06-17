@@ -8,6 +8,8 @@ const customContainer = document.getElementById('custom-bg-container');
 const customInput = document.getElementById('custom-bg-input');
 const customPreview = document.getElementById('custom-bg-preview');
 
+const enableSound = document.querySelector('.checks input');
+
 function saveStyle() {
     localStorage.setItem('Settings-Appearance', JSON.stringify({
         selected_wallpaper: selectedImageElement?.src,
@@ -149,3 +151,13 @@ if (savedCustomBg) {
 
 const saved = localStorage.getItem("accentStyle");
 if (saved) document.documentElement.style.setProperty('--accent', saved);
+
+
+enableSound.addEventListener('change', (e) => {
+    localStorage.setItem('sounds-enabled', e.target.checked);
+});
+
+const soundsEnabled = localStorage.getItem('sounds-enabled');
+if (soundsEnabled !== null) {
+    enableSound.checked = soundsEnabled === 'true';
+}
