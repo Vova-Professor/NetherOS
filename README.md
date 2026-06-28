@@ -34,7 +34,7 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
 - 🕐 Live clock & date on the lock screen
 
-- 🔒 PIN-protected login
+- 🔒 PIN-protected login + encrypted
 
 - 🖼️ Random wallpaper on each load
 
@@ -61,7 +61,7 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 
     - Sandbox Environment - not optimized yet, but should work like virtual environment!
 
-    - App Injector - import your own app by link. ( Unfortunately browsers block that function :( )
+    - App Injector - import your own app via a link. ( Unfortunately browsers block that function :( )
 
     - CraftShell - minecraft-styled terminal shell
 
@@ -89,13 +89,8 @@ or just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 
 ## What's NEW?
-- Optimized look overall:
-    1. Fixed window bugs.
-    2. Added boot screen.
-    3. Beautified desktop loading.
-    4. Fixed bugs with PIN
-    5. Added sounds!
-- Optimized security.
+- Resize apps
+- terminal misspelling command fix.
 
 ---
 

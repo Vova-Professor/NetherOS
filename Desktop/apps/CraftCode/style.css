@@ -183,6 +183,10 @@ header {
     color: #9ece6a;
 }
 
+.special {
+    color: #fc7b7b;
+}
+
 #stdin {
     width: 100%;
     height: 40%;
@@ -194,4 +198,9 @@ header {
     font-size: var(--font_size);
     resize: none;
     display: block;
+}
+
+#preview {
+    display: flex;
+    background-color: #fff;
 }

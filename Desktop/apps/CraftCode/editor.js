@@ -31,6 +31,8 @@ const types = [
 
 const func = ['fn', 'class', 'function', 'def', 'struct', 'impl'];
 
+const special = ['<', '>']
+
 function escapeHtml(text) {
     return text
         .replace(/&/g, '&amp;')
@@ -98,6 +100,9 @@ function highlight(code) {
             else if (keywords.includes(bare)) {
                 highlightedWords.push(word.replace(bare, `<span class="keyword">${bare}</span>`));
             }
+            else if (special.includes(bare)) {
+                highlightedWords.push(word.replace(bare, `<span class="special">${bare}</span>`));
+            }
             else if (word.replace(/\)+$/, '').includes('(')) {
                 const name = word.split('(')[0];
                 const rest = word.slice(name.length);
@@ -110,6 +115,11 @@ function highlight(code) {
 
         let highlightLine = highlightedWords.join(' ');
         highlightLine = highlightStrings(highlightLine);
+
+        highlightLine = highlightLine.replace(
+            /(&lt;\/?)([a-zA-Z][\w-]*)(.*?)(\/?&gt;)/g,
+            '<span class="special">$1</span><span class="function">$2</span>$3<span class="special">$4</span>'
+        );
         result.push(highlightLine);
     }
     return result.join('\n');

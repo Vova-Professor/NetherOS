@@ -1,11 +1,19 @@
 const outputText = document.getElementById('output');
 const languageIcon = document.getElementById("lang-icon");
 const fileNameInput = document.querySelector('.file-name');
+const preview = document.getElementById("preview");
 
 
 function updateLanguageIcon() {
     const ext = fileNameInput.value.trim().match(/\.[^.]+$/)?.[0];
-    const icons = {".rs": './imgs/languages/rust.png', ".cpp": './imgs/languages/cpp.png', ".c": './imgs/languages/c.png', ".py": './imgs/languages/python.png'};
+    const icons = {".rs": './imgs/languages/rust.png', ".cpp": './imgs/languages/cpp.png', ".c": './imgs/languages/c.png', ".py": './imgs/languages/python.png', ".html": './imgs/not_languages/html.png'};
+
+    if (ext === '.html') {
+        preview.style.display = "flex";
+    }
+    else {
+        preview.style.display = "none";
+    }
 
     if (icons[ext]) {
         languageIcon.src = icons[ext];
@@ -107,6 +115,9 @@ async function runCode() {
         } else {
             beutifyRender(data.buildResult.stderr.map(l => l.text).join('\n'));
         }
+    }
+    else if (fileName.endsWith('.html')) {
+        preview.srcdoc = code;
     }
     else {
         outputText.style.color = "#c71e1e";

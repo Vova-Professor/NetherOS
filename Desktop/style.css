@@ -303,6 +303,29 @@ section {
                 opacity 0.3s ease;
 }
 
+.tl, .tr, .bl, .br {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    cursor: nwse-resize;
+}
+.tl {
+    left: 0;
+    top: 0;
+}
+.tr {
+    right: 0;
+    top: 0;
+}
+.bl {
+    left: 0;
+    bottom: 0;
+}
+.br {
+    right: 0;
+    bottom: 0;
+}
+
 .window.maximized {
     position: fixed !important;
     top: 0 !important;

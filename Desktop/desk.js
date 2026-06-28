@@ -96,7 +96,6 @@ function pushMessage(title, msg, img, app, app_icon) {
                 <div class="text-area">
                     <p>${msg}</p>
                 </div>
-                
             </section>
         </section>
     `
@@ -157,6 +156,10 @@ function openApp(path, title, iconPath, appEl) {
         </div>
     </div>
     <iframe src="${path}" frameborder="0"></iframe>
+    <div class="tl"></div>
+    <div class="tr"></div>
+    <div class="bl"></div>
+    <div class="br"></div>
     `
     if (localStorage.getItem('sounds-enabled') !== 'false') {
         new Audio('./audio/open_sound.wav').play().catch(() => {});
@@ -166,6 +169,7 @@ function openApp(path, title, iconPath, appEl) {
     })
     processes.push({ title, appEl, win, minimized: false });
     dragRight(win);
+    enableResize(win);
 }
 
 document.addEventListener("keydown", (e) => {
@@ -190,6 +194,56 @@ document.addEventListener("keydown", (e) => {
         openApp('./apps/terminal/index.html', 'CraftShell', "./apps/terminal/imgs/console.jpg", null);
     } 
 })
+
+function enableResize(win) {
+    const MAX_WIDTH = 900;
+    const MAX_HEIGHT = 600;
+    const handles = {
+        tl: win.querySelector('.tl'),
+        tr: win.querySelector('.tr'),
+        bl: win.querySelector('.bl'),
+        br: win.querySelector('.br'),
+    }
+    Object.entries(handles).forEach(([dir, handle]) => {
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const startX = e.clientX;
+            const startY = e.clientY;
+            const startWidth = win.offsetWidth;
+            const startHeight = win.offsetHeight;
+            const startLeft = win.offsetLeft;
+            const startTop = win.offsetTop;
+
+            function onMove(e) {
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+
+                if (dir.includes('r')) {
+                    win.style.width = Math.max(MAX_WIDTH, startWidth + dx) + 'px';
+                }
+                if (dir.includes('b')) {
+                    win.style.height = Math.max(MAX_HEIGHT, startHeight + dy) + 'px';
+                }
+                if (dir.includes('l')) {
+                    win.style.width = Math.max(MAX_WIDTH, startWidth - dx) + 'px';
+                    win.style.left = startLeft + dx + 'px';
+                }
+                if (dir.includes('t')) {
+                    win.style.height =  Math.max(MAX_HEIGHT, startHeight - dy) + 'px';
+                    win.style.top = startTop + (startHeight - Math.max(MAX_HEIGHT, startHeight - dy)) + 'px';
+                }
+            }
+            function onUp() {
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+            }
+
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        })
+    })
+}
 
 function maximizeApp(btn) {
     const win = btn.closest('.window');
@@ -256,6 +310,7 @@ function dragRight(win) {
     let offsetX = 0, offsetY = 0, startX = 0, startY = 0;
 
     titlebar.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.tl, .tr, .bl, .br')) return;
         startX = e.clientX;
         startY = e.clientY;
         offsetX = win.offsetLeft;

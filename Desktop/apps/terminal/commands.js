@@ -1,7 +1,7 @@
 const terminal = document.getElementById("terminal");
 
 const commands = {
-    "/help": "Available commands:\n/help - show list of available commands and explain them.\n/whoami - get current user name.\n/clear - clear console.\n/time - shows current time h:m:s.\n/change-bg - change your background with index.\n/change-style - change appearance with theme name.\n/hard-resets - resets your system and logs out.",
+    "/help": "Available commands:\n/help - show list of available commands and explain them.\n/whoami - get current user name.\n/clear - clear console.\n/time - shows current time h:m:s.\n/change-bg - change your background with index.\n/change-style - change appearance with theme name.\n/hard-reset - resets your system and logs out.",
     "/whoami": "Vova-Professor",
     "/time": "Current time: " + new Date().toLocaleTimeString(),
     "/change-bg": (args) => {
