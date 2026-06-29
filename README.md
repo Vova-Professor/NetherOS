@@ -89,8 +89,7 @@ or just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 
 ## What's NEW?
-- Resize apps
-- terminal misspelling command fix.
+- Removed About Me App
 
 ---
 
