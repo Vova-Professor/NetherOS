@@ -80,9 +80,7 @@ NetherOS is a web-based operating system built with pure HTML, CSS, and JavaScri
 ---
 
 ## How to run
-
-Just open `index.html` in your browser. That's it. Seriously..... 😭
-or just open [direct link](https://vova-professor.github.io/NetherOS/)
+Just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 ---
 
