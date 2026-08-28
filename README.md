@@ -1,6 +1,6 @@
 # NetherOS
 
-Version: 2.6
+Version: 2.7
 
 
 > A Minecraft-flavored WebOS. Somewhere between Windows and macOS, but blockier.
@@ -87,7 +87,7 @@ Just open [direct link](https://vova-professor.github.io/NetherOS/)
 
 
 ## What's NEW?
-- Removed About Me App
+- Added new tab in settings to configure your account. (It's just only design yet)
 
 ---
 
