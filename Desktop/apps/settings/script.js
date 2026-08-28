@@ -1,4 +1,4 @@
-const tabs = {"wifi": "./tabs/wifi/index.html", "appearance": "./tabs/appearance/index.html"};
+const tabs = {"wifi": "./tabs/wifi/index.html", "appearance": "./tabs/appearance/index.html", "account": "./tabs/account/index.html"};
 const settingsSection = document.querySelector(".sett-sect");
 const account = JSON.parse(localStorage.getItem('current-user-account'));
 const username = document.getElementById('account-username');
@@ -12,8 +12,8 @@ pfp.src = pfpSrc || "../../imgs/_USR_PFP/pfp.jpg";
 
 username.innerText = account.username;
 
-function changeTab(kind, tabBtn) {
+function changeTab(kind, element) {
     settingsSection.src = tabs[kind];
-    document.querySelectorAll('.settings-menu .tab').forEach(c => c.classList.remove('selected'));
-    tabBtn.classList.add("selected");
+    document.querySelectorAll('.settings-menu .menu-item').forEach(c => c.classList.remove('selected'));
+    element.classList.add("selected");
 }

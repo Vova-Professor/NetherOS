@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../../../../../g.css">
+</head>
+<body>
+    <h2>Password</h2>
+    <div class="passw-wrap">
+        <div class="wrap-bio">
+            <div class="passw-info">
+                <h3>Password</h3>
+                <p style="font-size: 8pt;">Choose the most effective way to unlock your system!</p>
+            </div>
+            <select id="curr-passw">
+                <option value="pin">PIN (1234)</option>
+                <option value="password">Password (****)</option>
+                <option value="question">Security Question (?)</option>
+                <option value="pattern">Pattern unlock</option>
+                <option value="no">No Password (!)</option>
+            </select>
+        </div>
+    </div>
+    <div class="password">
+        <div class="el">
+            <label for="pin">PIN</label>
+            <div class="input-wrap">
+                <input type="password" name="pin" placeholder="0657" id="pin" class="text-input" maxlength="4">
+            </div>
+        </div>
+
+        <div class="el">
+            <label for="repeat-pin">Repeat PIN</label>
+            <div class="input-wrap">
+                <input type="password" name="repeat-pin" placeholder="0657" id="re-pin" class="text-input" maxlength="4">
+            </div>
+        </div>
+
+        <div class="btn-wrap">
+            <input type="button" class="save-btn" value="Save">
+        </div>
+
+    </div>
+    <script src="./script.js"></script>
+    <script src="./pattern.js"></script>
+</body>
+</html>

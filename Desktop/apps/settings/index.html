@@ -9,14 +9,14 @@
 </head>
 <body>
     <nav class="settings-menu">
-        <div class="info">
+        <div class="info menu-item" onclick="changeTab('account', this)">
             <img src="../../../imgs/_USR_PFP/pfp.jpg" id="account-pfp">
             <span id="account-username">Vova-Professor</span>
         </div>
-        <div class="tab selected" onclick="changeTab('wifi', this)">
+        <div class="tab menu-item selected" onclick="changeTab('wifi', this)">
             <span>Wi-Fi</span>
         </div>
-        <div class="tab" onclick="changeTab('appearance', this)">
+        <div class="tab menu-item" onclick="changeTab('appearance', this)">
             <span>Personalisation</span>
         </div>
     </nav>

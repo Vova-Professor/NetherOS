@@ -18,9 +18,9 @@ const superSecret = account.pin;
 username.innerText = account.username;
 const pfpSrc = account.pfp === "custom-pfp"
     ? localStorage.getItem("custom-pfp")
-    : '../imgs/_USR_PFP/phantom.png';
+    : '../../imgs/_USR_PFP/phantom.png';
     
-userPfp.src = pfpSrc || "../../imgs/_USR_PFP/pfp.jpg";
+userPfp.src = pfpSrc || "../../imgs/_USR_PFP/phantom.jpg";
 
 function forg() {
     err_txt.style.color = '#fff';

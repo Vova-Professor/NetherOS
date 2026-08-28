@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../../../g.css">
+</head>
+<body>
+    <h1>Accounts</h1>
+    <div class="info-wrap">
+        <img src="../../../../../imgs/_USR_PFP/pfp.jpg" id="pfp">
+        <div class="story-wrap">
+            <h3>Vova-Professor</h3>
+            <p>Admin</p>
+        </div>
+    </div>
+
+    <h2>Account settings</h2>
+    <div class="tabs-wrapper">
+        <div class="setting-tab" onclick="change_tab('your_info');">
+            <img src="./imgs/User.png">
+            <div class="text-wrap">
+                <h3>Your Info</h3>
+                <p>Profile photo, username...</p>
+            </div>
+        </div>
+
+        <div class="setting-tab" onclick="change_tab('sign-in');">
+            <img src="./imgs/Key.png" class="key-img">
+            <div class="text-wrap">
+                <h3>Sign-In Options</h3>
+                <p>PIN, Graphical etc.</p>
+            </div>
+        </div>
+
+        <div class="setting-tab" onclick="change_tab('organise_access');">
+            <img src="./imgs/Crown.png">
+            <div class="text-wrap">
+                <h3>Organise access</h3>
+                <p>Admin Rights, User Rights...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    
+    
+
+</body>
+</html>

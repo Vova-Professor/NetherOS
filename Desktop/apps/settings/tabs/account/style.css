@@ -1,0 +1,75 @@
+body {
+    color: #fff;
+    margin: 0;
+    font-family: 'Minecraft';
+}
+
+.info-wrap {
+    display: flex;
+    align-items: center;
+    background-color: #161623;
+    padding: 10px 5px;
+    border-radius: 1rem;
+}
+
+.setting-tab {
+    display: flex;
+    align-items: center;
+    background-color: #161623;
+    gap: 30px;
+    padding: 10px 5px;
+    border-radius: 3px;
+    transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.info-wrap #pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 4rem;
+}
+
+.story-wrap {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.story-wrap h3 {
+    font-size: 18pt;
+    margin: 0;
+}
+
+.setting-tab .text-wrap p {
+    color: #a19ebb;
+}
+
+.setting-tab .text-wrap h3,
+.setting-tab .text-wrap p {
+    margin: 0;
+}
+
+.setting-tab img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 20px;
+}
+
+.setting-tab .key-img {
+    rotate: 25deg;
+}
+
+.tabs-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.setting-tab:hover {
+    background-color: #23233b;
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.setting-tab:has(~ .setting-tab:hover) {
+    transform: translateY(-10px);
+}

@@ -38,7 +38,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.tab.selected {
+.menu-item.selected {
     background-color: #292937;
 }
 

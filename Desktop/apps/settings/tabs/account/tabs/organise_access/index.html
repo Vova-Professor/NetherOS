@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../../../../../g.css">
+</head>
+<body>
+    <h2>Accounts</h2>
+    <div class="accounts-wrap">
+        <div class="account-info">
+            <h3>Account Configuration</h3>
+            <p style="font-size: 8pt;">Choose the account you want to configure:</p>
+
+            <ul class="users">
+                <li class="user" data-name="Root">
+                    <h3 id="user">Root</h3>
+                    <p class="role sa">Super-Admin</p>
+                    <ul>
+                    <li class="user" data-name="Vova-Professor">
+                        <h3 class="user current">Vova-Professor</h3>
+                        <p class="role a">Administrator</p>
+                    </li>
+                    <li class="user" data-name="Some-Professor">
+                        <h3 class="user current">Some-Professor</h3>
+                        <p class="role re">Restricted</p>
+                    </li>
+                    <li class="user" data-name="Some_user">
+                        <h3 class="user current">Some_user</h3>
+                        <p class="role usr">User</p>
+                    </li>
+                    <li class="user" data-name="User-Some">
+                        <h3 class="user current">User-Some</h3>
+                        <p class="role usr">User</p>
+                    </li>
+                </ul>
+            </li>
+        </div>
+    </div>
+
+    <div id="account-container"></div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>

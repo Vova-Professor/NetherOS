@@ -1,0 +1,146 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 30px;
+    font-family: 'Minecraft';
+    color: #fff;
+}
+
+
+.passw-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 80%;
+    min-height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0f0f18;
+}
+
+.wrap-bio {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    gap: 20px;
+}
+
+.passw-info {
+    width: 100%;
+}
+
+.passw-wrap select {
+    width: 200px;
+    height: 30px;
+    border-radius: 4rem;
+    background-color: #3f3f93;
+    color: white;
+    padding-left: 10px;
+    border: none;
+
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    background-color: #0f0f18;
+    width: 250px;
+    min-height: 250px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    gap: 30px;
+    border-radius: 15px;
+    padding: 20px 0;
+}
+
+.el {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.el .input-wrap {
+    position: relative;
+}
+.el .text-input {
+    color: #fff;
+    background: none;
+    border: none;
+    width: 200px;
+    font-family: 'Minecraft';
+}
+
+.el .input-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #7f77dd;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.el .text-input:focus {
+    outline: none;
+}
+
+.el .input-wrap:focus-within::after {
+    transform: scaleX(1);
+}
+
+.save-btn {
+    width: 80px;
+    height: 30px;
+    background-color: #463cb1;
+    border-radius: 7px;
+    border: none;
+    color: #fff;
+    font-family: 'Minecraft';
+}
+
+.pattern-box {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dots-wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 35px;
+}
+
+.dot {
+    width: 30px;
+    height: 30px;
+
+    border: #9e96fd 5px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
